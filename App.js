@@ -5,7 +5,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>This is my first react-native app!</Text>
+        <Text>This is my reatt native app!</Text>
       </View>
     );
   }
