@@ -17,4 +17,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # build
-/ios/build
+/ios/build/
+/android/app/build/
+/android/.gradle/
