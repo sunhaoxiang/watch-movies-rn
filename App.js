@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
+
 import { StyleSheet, Text, View, ListView, FlatList } from 'react-native'
 
 const REQUEST_URL = 'https://api.douban.com/v2/movie/top250'
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor (props) {
     super(props)
 
