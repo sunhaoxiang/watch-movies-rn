@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import { Text, View, Image, FlatList } from 'react-native'
 import styles from '../styles/Main'
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import MovieList from '../components/MovieList'
-import { Text, View, ListView, FlatList, Image } from 'react-native'
 
 export default class App extends Component {
   constructor (props) {
