@@ -8,14 +8,15 @@ export default class MovieList extends Component {
     super(props)
 
     this.state = {
-      movies: [],
-      loading: true
+      movies: [], // 请求到的电影列表
+      loading: true // 数据加载状态
     }
 
-    this.fetchData()
+    this.fetchMovieList()
   }
 
-  fetchData = () => {
+  // 请求数据
+  fetchMovieList = () => {
     fetch(this.props.requestUrl)
       .then(res => res.json())
       .then(data => {
@@ -26,7 +27,8 @@ export default class MovieList extends Component {
       })
   }
 
-  _renderItem = ({item}) => (
+  // 渲染列表
+  renderMovieListHandler = ({item}) => (
     <View style={styles.item}>
       <Image 
         source={{uri: item.images.large}}
@@ -42,9 +44,11 @@ export default class MovieList extends Component {
     </View>
   )
 
-  _keyExtractor = (item, index) => item.id
+  // 生成列表的key
+  keyExtractorHandler = (item, index) => item.id
 
-  render() {
+  render () {
+    // 数据未渲染完成
     if (this.state.loading) {
       return (
         <View style={styles.container}>
@@ -55,12 +59,13 @@ export default class MovieList extends Component {
       )
     }
 
+    // 数据渲染完成
     return (
       <View style={styles.container}>
         <FlatList 
           data={this.state.movies}
-          renderItem={this._renderItem}
-          keyExtractor={this._keyExtractor}
+          renderItem={this.renderMovieListHandler}
+          keyExtractor={this.keyExtractorHandler}
         />
       </View>
     )

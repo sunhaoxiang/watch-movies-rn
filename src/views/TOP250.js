@@ -11,7 +11,7 @@ export default class App extends Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <MovieList requestUrl={this.state.requestUrl} />
     )

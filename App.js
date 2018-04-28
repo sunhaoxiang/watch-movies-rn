@@ -11,7 +11,7 @@ import TOP250 from './src/views/TOP250'
 //     }
 //   }
   
-//   render() {
+//   render () {
 //     return (
 //       <TOP250 />
 //     )
