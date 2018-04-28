@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
-import { Text, View, Image, FlatList } from 'react-native'
+import { 
+  View, 
+  Text, 
+  Image, 
+  FlatList 
+} from 'react-native'
 import styles from '../styles/Main'
 
-export default class MovieList extends Component {
+export default class MoviesList extends Component {
   constructor (props) {
     super(props)
 
@@ -10,12 +15,14 @@ export default class MovieList extends Component {
       movies: [], // 请求到的电影列表
       loading: true // 数据加载状态
     }
-
-    this.fetchMovieList()
   }
 
-  // 请求数据
-  fetchMovieList = () => {
+  componentDidMount () {
+    this.fetchMoviesList()
+  }
+
+  // 请求列表数据
+  fetchMoviesList = () => {
     fetch(this.props.requestUrl)
       .then(res => res.json())
       .then(data => {
@@ -27,7 +34,7 @@ export default class MovieList extends Component {
   }
 
   // 渲染列表
-  renderMovieListHandler = ({item}) => (
+  renderMoviesListHandler = ({item}) => (
     <View style={styles.item}>
       <Image 
         source={{uri: item.images.large}}
@@ -63,7 +70,7 @@ export default class MovieList extends Component {
       <View style={styles.container}>
         <FlatList 
           data={this.state.movies}
-          renderItem={this.renderMovieListHandler}
+          renderItem={this.renderMoviesListHandler}
           keyExtractor={this.keyExtractorHandler}
         />
       </View>

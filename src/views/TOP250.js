@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MovieList from '../components/MovieList'
+import MoviesList from '../components/MoviesList'
 
 export default class App extends Component {
   constructor (props) {
@@ -12,7 +12,7 @@ export default class App extends Component {
 
   render () {
     return (
-      <MovieList requestUrl={this.state.requestUrl} />
+      <MoviesList requestUrl={this.state.requestUrl} />
     )
   }
 }
