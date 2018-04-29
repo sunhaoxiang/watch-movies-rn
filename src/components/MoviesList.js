@@ -71,10 +71,6 @@ class MoviesList extends Component {
 		this.fetchMoviesList()
 	}
 
-	componentWillUnmount () {
-
-	}
-
   render () {
   	const {
   		loading,
