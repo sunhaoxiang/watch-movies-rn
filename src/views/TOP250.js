@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MoviesList from '../components/MoviesList'
 
-export default class TOP250 extends Component {
+class TOP250 extends Component {
   constructor (props) {
     super(props)
 
@@ -11,8 +11,12 @@ export default class TOP250 extends Component {
   }
 
   render () {
+    const { requestUrl } = this.state
+
     return (
-      <MoviesList requestUrl={this.state.requestUrl} />
+      <MoviesList requestUrl={requestUrl} />
     )
   }
 }
+
+export default TOP250

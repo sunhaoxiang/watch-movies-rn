@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { 
-  View, 
-  Text, 
+import {
+  View,
+  Text,
   Image, 
-  FlatList 
+  FlatList
 } from 'react-native'
 import styles from '../styles/Main'
 
-export default class MoviesList extends Component {
+class MoviesList extends Component {
   constructor (props) {
     super(props)
 
@@ -17,45 +17,72 @@ export default class MoviesList extends Component {
     }
   }
 
-  componentDidMount () {
-    this.fetchMoviesList()
-  }
-
   // 请求列表数据
   fetchMoviesList = () => {
-    fetch(this.props.requestUrl)
+  	const { requestUrl } = this.props
+
+    fetch(requestUrl)
       .then(res => res.json())
       .then(data => {
+      	const { subjects } = data
         this.setState({
-          movies: data.subjects,
+          movies: subjects,
           loading: false
         })
       })
   }
 
   // 渲染列表
-  renderMoviesListHandler = ({item}) => (
-    <View style={styles.item}>
-      <Image 
-        source={{uri: item.images.large}}
-        style={styles.itemImage}
-      />
-      <View style={styles.itemContent}>
-        <Text style={styles.itemHeader}>{item.title}</Text>
-        <Text style={styles.itemMeta}>
-          {item.original_title} ({item.year})
-        </Text>
-        <Text style={styles.redText}>{item.rating.average}</Text>
-      </View>
-    </View>
-  )
+  renderMoviesListHandler = ({item}) => {
+		const {
+			images: { large },
+			title,
+			original_title,
+			year,
+			rating: { average }
+		} = item
+
+	  return (
+		  <View style={styles.item}>
+			  <Image
+				  source={{uri: large}}
+				  style={styles.itemImage}
+			  />
+			  <View style={styles.itemContent}>
+				  <Text style={styles.itemHeader}>{title}</Text>
+				  <Text style={styles.itemMeta}>
+					  {`${original_title} (${year})`}
+				  </Text>
+				  <Text style={styles.redText}>{average}</Text>
+			  </View>
+		  </View>
+	  )
+  }
 
   // 生成列表的key
-  keyExtractorHandler = (item, index) => item.id
+  keyExtractorHandler = (item) => {
+  	const { id } = item
+
+	  return id
+  }
+
+	componentDidMount () {
+  	// 开始请求列表数据
+		this.fetchMoviesList()
+	}
+
+	componentWillUnmount () {
+
+	}
 
   render () {
-    // 数据未渲染完成
-    if (this.state.loading) {
+  	const {
+  		loading,
+		  movies
+  	} = this.state
+
+    // 数据未加载完成
+    if (loading) {
       return (
         <View style={styles.container}>
           <View style={styles.loading}>
@@ -65,11 +92,11 @@ export default class MoviesList extends Component {
       )
     }
 
-    // 数据渲染完成
+    // 数据加载完成
     return (
       <View style={styles.container}>
         <FlatList 
-          data={this.state.movies}
+          data={movies}
           renderItem={this.renderMoviesListHandler}
           keyExtractor={this.keyExtractorHandler}
         />
@@ -77,3 +104,5 @@ export default class MoviesList extends Component {
     )
   }
 }
+
+export default MoviesList

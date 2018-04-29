@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TOP250 from './src/views/TOP250'
 
-// export default class App extends Component {
+// class App extends Component {
 //   constructor (props) {
 //     super(props)
 
@@ -18,8 +18,10 @@ import TOP250 from './src/views/TOP250'
 //   }
 // }
 
-export default App = () => {
+const App = () => {
   return (
     <TOP250 />
   )
 }
+
+export default App
