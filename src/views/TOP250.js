@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MoviesList from '../components/MoviesList'
+import MovieList from '../components/MovieList'
 
 class TOP250 extends Component {
   constructor (props) {
@@ -14,7 +14,7 @@ class TOP250 extends Component {
     const { requestUrl } = this.state
 
     return (
-      <MoviesList requestUrl={requestUrl} />
+      <MovieList requestUrl={requestUrl} />
     )
   }
 }

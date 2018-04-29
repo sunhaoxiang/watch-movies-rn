@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import {
   View,
   Text,
-  Image,
   FlatList
 } from 'react-native'
+import MovieItem from './MovieItem'
 import styles from '../styles/Main'
 
-class MoviesList extends Component {
+class MovieList extends Component {
   constructor (props) {
     super(props)
 
@@ -18,7 +18,7 @@ class MoviesList extends Component {
   }
 
   // 请求电影列表数据
-  fetchMoviesList = () => {
+  fetchMovieList = () => {
 	  const { requestUrl } = this.props
     fetch(requestUrl)
       .then(res => res.json())
@@ -32,42 +32,18 @@ class MoviesList extends Component {
   }
 
   // 渲染电影列表
-  renderMoviesListHandler = ({item}) => {
-		const {
-			images: { large },
-			title,
-			original_title,
-			year,
-			rating: { average }
-		} = item
-
-	  return (
-		  <View style={styles.item}>
-			  <Image
-				  source={{uri: large}}
-				  style={styles.itemImage}
-			  />
-			  <View style={styles.itemContent}>
-				  <Text style={styles.itemHeader}>{title}</Text>
-				  <Text style={styles.itemMeta}>
-					  {`${original_title} (${year})`}
-				  </Text>
-				  <Text style={styles.redText}>{average}</Text>
-			  </View>
-		  </View>
+  renderMovieListHandler = ({item}) => {
+  	return (
+  		<MovieItem itemData={item} />
 	  )
   }
 
   // 生成列表的key
-  keyExtractorHandler = (item) => {
-  	const { id } = item
-
-	  return id
-  }
+  keyExtractorHandler = item => item.id
 
 	componentDidMount () {
   	// 开始请求电影列表数据
-		this.fetchMoviesList()
+		this.fetchMovieList()
 	}
 
   render () {
@@ -92,7 +68,7 @@ class MoviesList extends Component {
       <View style={styles.container}>
         <FlatList 
           data={movies}
-          renderItem={this.renderMoviesListHandler}
+          renderItem={this.renderMovieListHandler}
           keyExtractor={this.keyExtractorHandler}
         />
       </View>
@@ -100,4 +76,4 @@ class MoviesList extends Component {
   }
 }
 
-export default MoviesList
+export default MovieList

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
+import React from 'react'
 import TOP250 from './src/views/TOP250'
 
 // class App extends Component {
