@@ -17,7 +17,7 @@ const MovieItem = (props) => {
     }
   } = props
 
-	return (
+  return (
     <View style={styles.item}>
       <Image
         source={{uri: large}}
