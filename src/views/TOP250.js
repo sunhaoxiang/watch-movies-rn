@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MoviesList from '../components/MoviesList'
 
-export default class App extends Component {
+export default class TOP250 extends Component {
   constructor (props) {
     super(props)
 
