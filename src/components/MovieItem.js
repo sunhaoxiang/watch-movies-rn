@@ -24,7 +24,6 @@ class MovieItem extends Component {
       }
     } = this.props
     console.log(title)
-    alert(title)
   }
 
   render () {
@@ -41,7 +40,7 @@ class MovieItem extends Component {
     return (
       <TouchableHighlight
         underlayColor="rgba(34, 26, 38, 0.1)"
-        onPress={() => {this.PressMovieItemHandler()}}
+        onPress={this.PressMovieItemHandler}
       >
         <View style={styles.item}>
           <Image

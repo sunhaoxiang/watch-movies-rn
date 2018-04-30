@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import {
   TabBarIOS
 } from 'react-native'
+import InTheater from './InTheater'
 import USBox from './USBox'
 import TOP250 from './TOP250'
 
 class Layout extends Component {
   state = {
-    selectedTab: 'usBox'
+    selectedTab: 'inTheater'
   }
 
   render () {
@@ -15,6 +16,17 @@ class Layout extends Component {
 
     return (
       <TabBarIOS>
+        <TabBarIOS.Item
+          systemIcon="most-viewed"
+          selected={selectedTab === 'inTheater'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'inTheater'
+            })
+          }}
+        >
+          <InTheater />
+        </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon="featured"
           selected={selectedTab === 'usBox'}
