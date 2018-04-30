@@ -4,8 +4,10 @@ export default StyleSheet.create({
   container: {
     flexDirection: 'row',
     flex: 1,
-    backgroundColor: '#eae7ff',
-    paddingTop: 20
+    backgroundColor: '#eae7ff'
+  },
+  headerSpace: {
+    marginTop: 60,
   },
   item: {
     flexDirection: 'row',

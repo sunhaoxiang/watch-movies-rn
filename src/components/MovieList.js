@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {
-  View,
   FlatList
 } from 'react-native'
 import PropTypes from 'prop-types'
@@ -66,13 +65,12 @@ class MovieList extends Component {
 
     // 电影列表数据加载完成
     return (
-      <View style={styles.container}>
-        <FlatList 
-          data={movies}
-          renderItem={this.renderMovieListHandler}
-          keyExtractor={this.keyExtractorHandler}
-        />
-      </View>
+      <FlatList
+        style={styles.headerSpace}
+        data={movies}
+        renderItem={this.renderMovieListHandler}
+        keyExtractor={this.keyExtractorHandler}
+      />
     )
   }
 }
