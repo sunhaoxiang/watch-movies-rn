@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {
   View,
-  Text,
   FlatList
 } from 'react-native'
 import PropTypes from 'prop-types'
 import MovieItem from './MovieItem'
+import LoadingSpin from './LoadingSpin'
 import styles from '../styles/Main'
 
 class MovieList extends Component {
@@ -60,11 +60,7 @@ class MovieList extends Component {
     // 电影列表数据未加载完成
     if (loading) {
       return (
-        <View style={styles.container}>
-          <View style={styles.loading}>
-            <Text>加载中……</Text>
-          </View>
-        </View>
+        <LoadingSpin />
       )
     }
 
