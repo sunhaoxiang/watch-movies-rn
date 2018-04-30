@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import BoxItem from './BoxItem'
 import LoadingSpin from './LoadingSpin'
 import styles from '../styles/Main'
+import MovieDetail from "../views/MovieDetail"
 
 class BoxList extends Component {
   static defaultProps = {
@@ -38,12 +39,26 @@ class BoxList extends Component {
   // 渲染电影列表
   renderBoxListHandler = ({item}) => {
     return (
-      <BoxItem itemData={item} />
+      <BoxItem
+        itemData={item}
+        onItemPress={this.showBoxDetailHandler}
+      />
     )
   }
 
   // 生成列表的key
   keyExtractorHandler = item => item.subject.id
+
+  // 点击电影详情
+  showBoxDetailHandler = (data) => {
+    this.props.navigator.push({
+      title: data.title,
+      component: MovieDetail,
+      passProps: {
+        detailData: data
+      }
+    })
+  }
 
   componentDidMount () {
     // 开始请求电影列表数据

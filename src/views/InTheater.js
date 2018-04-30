@@ -10,7 +10,10 @@ class InTheater extends Component {
     const { requestUrl } = this.state
 
     return (
-      <MovieList requestUrl={requestUrl} />
+      <MovieList
+        requestUrl={requestUrl}
+        navigator={this.props.navigator}
+      />
     )
   }
 }

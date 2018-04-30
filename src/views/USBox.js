@@ -10,7 +10,10 @@ class USBox extends Component {
     const { requestUrl } = this.state
 
     return (
-      <BoxList requestUrl={requestUrl} />
+      <BoxList
+        requestUrl={requestUrl}
+        navigator={this.props.navigator}
+      />
     )
   }
 }

@@ -2,12 +2,16 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
-    flexDirection: 'row',
     flex: 1,
     backgroundColor: '#eae7ff'
   },
   headerSpace: {
-    marginTop: 60,
+    marginTop: 60
+  },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   item: {
     flexDirection: 'row',
@@ -59,11 +63,40 @@ export default StyleSheet.create({
     fontWeight: '300'
   },
   itemText: {
-    color: '#6435c9'
+    fontSize: 16,
+    fontFamily: 'Helvetica Neue',
+    fontWeight: '300',
+    color: 'rgba(0, 0, 0, 0.8)',
+    lineHeight: 26,
   },
-  loading: {
-    flex: 1,
+  detailImageWrapper: {
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    paddingTop: 6
+  },
+  detailImage: {
+    width: 120,
+    height: 180,
+    margin: 6
+  },
+  detailContent: {
+    flex: 1,
+    marginLeft: 13,
+    marginTop: 6
+  },
+  detailText: {
+    fontSize: 14,
+    fontFamily: 'Helvetica Neue',
+    color: 'rgba(0, 0, 0, 0.8)',
+    marginBottom: 5
+  },
+  detailSummaryWrapper: {
+    paddingTop: 20,
+    paddingBottom: 40
+  },
+  detailSummary: {
+    marginBottom: 15,
+    paddingLeft: 6,
+    paddingRight: 6
   }
 })

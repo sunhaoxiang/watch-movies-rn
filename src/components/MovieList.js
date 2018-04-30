@@ -4,6 +4,7 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 import MovieItem from './MovieItem'
+import MovieDetail from '../views/MovieDetail'
 import LoadingSpin from './LoadingSpin'
 import styles from '../styles/Main'
 
@@ -38,12 +39,26 @@ class MovieList extends Component {
   // 渲染电影列表
   renderMovieListHandler = ({item}) => {
   	return (
-  		<MovieItem itemData={item} />
+  		<MovieItem
+        itemData={item}
+        onItemPress={this.showMovieDetailHandler}
+      />
 	  )
   }
 
   // 生成列表的key
   keyExtractorHandler = item => item.id
+
+  // 点击电影详情
+  showMovieDetailHandler = (data) => {
+    this.props.navigator.push({
+      title: data.title,
+      component: MovieDetail,
+      passProps: {
+        detailData: data
+      }
+    })
+  }
 
 	componentDidMount () {
   	// 开始请求电影列表数据

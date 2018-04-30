@@ -10,41 +10,37 @@ import styles from '../styles/Main'
 
 class BoxItem extends Component {
   static defaultProps = {
-    itemData: {}
+    itemData: {},
+    onItemPress: null
   }
 
   static propTypes = {
-    itemData: PropTypes.object.isRequired
-  }
-
-  PressBoxItemHandler = () => {
-    const {
-      itemData: {
-        subject: {
-          title
-        }
-      }
-    } = this.props
-    console.log(title)
+    itemData: PropTypes.object.isRequired,
+    onItemPress: PropTypes.func.isRequired
   }
 
   render () {
     const {
       itemData: {
         box,
+        subject,
         subject: {
           images: { large },
           title,
           original_title,
+          year,
           rating: { average }
         }
-      }
+      },
+      onItemPress
     } = this.props
 
     return (
       <TouchableHighlight
         underlayColor="rgba(34, 26, 38, 0.1)"
-        onPress={this.PressBoxItemHandler}
+        onPress={() => {
+          onItemPress(subject)
+        }}
       >
         <View style={styles.item}>
           <Image
@@ -53,9 +49,9 @@ class BoxItem extends Component {
           />
           <View style={styles.itemContent}>
             <Text style={styles.itemHeader}>{title}</Text>
-            <Text style={styles.itemMeta}>{original_title}</Text>
+            <Text style={styles.itemMeta}>{`${original_title} (${year})`}</Text>
             <Text style={styles.yellowText}>{`${(box / 10000).toFixed(0)}万`}</Text>
-            <Text style={styles.redText}>{average ? average : '暂无评分'}</Text>
+            <Text style={styles.redText}>{average ? average.toFixed(1) : '暂无评分'}</Text>
           </View>
         </View>
       </TouchableHighlight>
