@@ -8,7 +8,7 @@ import {
 import PropTypes from 'prop-types'
 import styles from '../styles/Main'
 
-class MovieItem extends Component {
+class BoxItem extends Component {
   static defaultProps = {
     itemData: {}
   }
@@ -17,10 +17,12 @@ class MovieItem extends Component {
     itemData: PropTypes.object.isRequired
   }
 
-  PressMovieItemHandler = () => {
+  PressBoxItemHandler = () => {
     const {
       itemData: {
-        title
+        subject: {
+          title
+        }
       }
     } = this.props
     console.log(title)
@@ -30,18 +32,20 @@ class MovieItem extends Component {
   render () {
     const {
       itemData: {
-        images: { large },
-        title,
-        original_title,
-        year,
-        rating: { average }
+        box,
+        subject: {
+          images: { large },
+          title,
+          original_title,
+          rating: { average }
+        }
       }
     } = this.props
 
     return (
       <TouchableHighlight
         underlayColor="rgba(34, 26, 38, 0.1)"
-        onPress={() => {this.PressMovieItemHandler()}}
+        onPress={() => {this.PressBoxItemHandler()}}
       >
         <View style={styles.item}>
           <Image
@@ -51,9 +55,10 @@ class MovieItem extends Component {
           <View style={styles.itemContent}>
             <Text style={styles.itemHeader}>{title}</Text>
             <Text style={styles.itemMeta}>
-              {`${original_title} (${year})`}
+              {original_title}
             </Text>
-            <Text style={styles.redText}>{average}</Text>
+            <Text style={styles.yellowText}>{`${(box / 10000).toFixed(0)}万`}</Text>
+            <Text style={styles.redText}>{average ? average : '暂无评分'}</Text>
           </View>
         </View>
       </TouchableHighlight>
@@ -61,4 +66,4 @@ class MovieItem extends Component {
   }
 }
 
-export default MovieItem
+export default BoxItem

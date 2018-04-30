@@ -11,8 +11,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderColor: 'rgba(100, 53, 201, 0.1)',
+    paddingTop: 6,
     paddingBottom: 6,
-    marginBottom: 6,
     flex: 1
   },
   itemImage: {
@@ -35,7 +35,12 @@ export default StyleSheet.create({
   itemMeta: {
     fontSize: 16,
     color: 'rgba(0, 0, 0, 0.6)',
-    marginBottom: 6,
+    marginBottom: 6
+  },
+  yellowText: {
+    color: '#f5be0b',
+    fontSize: 16,
+    marginBottom: 6
   },
   redText: {
     color: '#db2828',
