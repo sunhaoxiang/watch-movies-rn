@@ -23,13 +23,13 @@ const Detail = (props) => {
     summary
   } = props.detail
 
-  const directorsNames = directors.map(item => item.name).join('/')
+  const directorsShow = directors.map(item => item.name).join('/')
 
-  const castsNames = casts.map(item => item.name).join('/')
+  const castsShow = casts.map(item => item.name).join('/')
 
-  const genresText = genres.join('/')
+  const genresShow = genres.join('/')
 
-  const countriesText = countries.join('/')
+  const countriesShow = countries.join('/')
 
   const splitSummary = summary.split(/\n/).map((item, index) => {
     return (
@@ -47,12 +47,12 @@ const Detail = (props) => {
           style={styles.detailImage}
         />
         <View style={styles.detailContent}>
-          <Text style={styles.detailText}>{`导演：${directorsNames}`}</Text>
-          <Text style={styles.detailText}>{`主演：${castsNames}`}</Text>
-          <Text style={styles.detailText}>{`类型：${genresText}`}</Text>
-          <Text style={styles.detailText}>{`国家：${countriesText}`}</Text>
+          <Text style={styles.detailText}>{`导演：${directorsShow}`}</Text>
+          <Text style={styles.detailText}>{`主演：${castsShow}`}</Text>
+          <Text style={styles.detailText}>{`类型：${genresShow}`}</Text>
+          <Text style={styles.detailText}>{`国家：${countriesShow}`}</Text>
           <Text style={styles.detailText}>{`上映年份：${year}`}</Text>
-          <Text style={styles.detailText}>{`评分：${average}`}</Text>
+          <Text style={styles.detailText}>{`评分：${average ? average.toFixed(1) : '暂无评分'}`}</Text>
         </View>
       </View>
       <View style={styles.detailSummaryWrapper}>

@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
-import {
-  View,
-  Text
-} from 'react-native'
 import Detail from '../components/Detail'
 import LoadingSpin from '../components/LoadingSpin'
-import styles from '../styles/Main'
 
 class MovieDetail extends Component {
   state = {

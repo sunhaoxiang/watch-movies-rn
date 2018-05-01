@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import {
-  TabBarIOS,
-  NavigatorIOS
+  View,
+  StatusBar,
+  NavigatorIOS,
+  TabBarIOS
 } from 'react-native'
 import InTheater from './InTheater'
 import USBox from './USBox'
 import TOP250 from './TOP250'
+import Search from './Search'
 import styles from '../styles/Main'
 import icons from '../assets/Icons'
 
@@ -39,18 +42,24 @@ class Layout extends Component {
             })
           }}
         >
-          <NavigatorIOS
-            style={styles.container}
-            initialRoute={{
-              title: '正在热映',
-              component: InTheater
-            }}
-            shadowHidden={true}
-            barTintColor="darkslateblue"
-            titleTextColor="rgba(255, 255, 255, 0.8)"
-            tintColor="rgba(255, 255, 255, 0.8)"
-            translucent={true}
-          />
+          <View style={styles.container}>
+            <StatusBar
+              backgroundColor="blue"
+              barStyle="light-content"
+            />
+            <NavigatorIOS
+              style={styles.container}
+              initialRoute={{
+                title: '正在热映',
+                component: InTheater
+              }}
+              shadowHidden={true}
+              barTintColor="darkslateblue"
+              titleTextColor="rgba(255, 255, 255, 0.8)"
+              tintColor="rgba(255, 255, 255, 0.8)"
+              translucent={true}
+            />
+          </View>
         </TabBarIOS.Item>
         <TabBarIOS.Item
           icon={{
@@ -69,18 +78,23 @@ class Layout extends Component {
             })
           }}
         >
-          <NavigatorIOS
-            style={styles.container}
-            initialRoute={{
-              title: '北美票房榜',
-              component: USBox
-            }}
-            shadowHidden={true}
-            barTintColor="darkslateblue"
-            titleTextColor="rgba(255, 255, 255, 0.8)"
-            tintColor="rgba(255, 255, 255, 0.8)"
-            translucent={true}
-          />
+          <View style={styles.container}>
+            <StatusBar
+              barStyle="light-content"
+            />
+            <NavigatorIOS
+              style={styles.container}
+              initialRoute={{
+                title: '北美票房榜',
+                component: USBox
+              }}
+              shadowHidden={true}
+              barTintColor="darkslateblue"
+              titleTextColor="rgba(255, 255, 255, 0.8)"
+              tintColor="rgba(255, 255, 255, 0.8)"
+              translucent={true}
+            />
+          </View>
         </TabBarIOS.Item>
         <TabBarIOS.Item
           icon={{
@@ -99,18 +113,58 @@ class Layout extends Component {
             })
           }}
         >
-          <NavigatorIOS
-            style={styles.container}
-            initialRoute={{
-              title: 'TOP250',
-              component: TOP250
-            }}
-            shadowHidden={true}
-            barTintColor="darkslateblue"
-            titleTextColor="rgba(255, 255, 255, 0.8)"
-            tintColor="rgba(255, 255, 255, 0.8)"
-            translucent={true}
-          />
+          <View style={styles.container}>
+            <StatusBar
+              barStyle="light-content"
+            />
+            <NavigatorIOS
+              style={styles.container}
+              initialRoute={{
+                title: 'TOP250',
+                component: TOP250
+              }}
+              shadowHidden={true}
+              barTintColor="darkslateblue"
+              titleTextColor="rgba(255, 255, 255, 0.8)"
+              tintColor="rgba(255, 255, 255, 0.8)"
+              translucent={true}
+            />
+          </View>
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          icon={{
+            uri: icons.search,
+            scale: 4.6
+          }}
+          selectedIcon={{
+            uri: icons.search,
+            scale: 4.6
+          }}
+          title="搜索"
+          selected={selectedTab === 'search'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'search'
+            })
+          }}
+        >
+          <View style={styles.container}>
+            <StatusBar
+              barStyle="light-content"
+            />
+            <NavigatorIOS
+              style={styles.container}
+              initialRoute={{
+                title: '搜索',
+                component: Search
+              }}
+              shadowHidden={true}
+              barTintColor="darkslateblue"
+              titleTextColor="rgba(255, 255, 255, 0.8)"
+              tintColor="rgba(255, 255, 255, 0.8)"
+              translucent={true}
+            />
+          </View>
         </TabBarIOS.Item>
       </TabBarIOS>
     )

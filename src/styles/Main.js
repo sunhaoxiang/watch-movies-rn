@@ -6,7 +6,8 @@ export default StyleSheet.create({
     backgroundColor: '#eae7ff'
   },
   headerSpace: {
-    marginTop: 60
+    marginTop: 60,
+    marginBottom: 40
   },
   loading: {
     flex: 1,
