@@ -22,8 +22,8 @@ class Layout extends Component {
 
     return (
       <TabBarIOS
-        barTintColor="darkslateblue"
-        tintColor="white"
+        tintColor="#e5120c"
+        unselectedItemTintColor="#ccc"
       >
         <TabBarIOS.Item
           icon={{
@@ -54,9 +54,9 @@ class Layout extends Component {
                 component: InTheater
               }}
               shadowHidden={true}
-              barTintColor="darkslateblue"
-              titleTextColor="rgba(255, 255, 255, 0.8)"
-              tintColor="rgba(255, 255, 255, 0.8)"
+              barTintColor="#e5120c"
+              titleTextColor="#fff"
+              tintColor="#fff"
               translucent={true}
             />
           </View>
@@ -89,9 +89,9 @@ class Layout extends Component {
                 component: USBox
               }}
               shadowHidden={true}
-              barTintColor="darkslateblue"
-              titleTextColor="rgba(255, 255, 255, 0.8)"
-              tintColor="rgba(255, 255, 255, 0.8)"
+              barTintColor="#e5120c"
+              titleTextColor="#fff"
+              tintColor="#fff"
               translucent={true}
             />
           </View>
@@ -124,9 +124,9 @@ class Layout extends Component {
                 component: TOP250
               }}
               shadowHidden={true}
-              barTintColor="darkslateblue"
-              titleTextColor="rgba(255, 255, 255, 0.8)"
-              tintColor="rgba(255, 255, 255, 0.8)"
+              barTintColor="#e5120c"
+              titleTextColor="#fff"
+              tintColor="#fff"
               translucent={true}
             />
           </View>
@@ -159,9 +159,9 @@ class Layout extends Component {
                 component: Search
               }}
               shadowHidden={true}
-              barTintColor="darkslateblue"
-              titleTextColor="rgba(255, 255, 255, 0.8)"
-              tintColor="rgba(255, 255, 255, 0.8)"
+              barTintColor="#e5120c"
+              titleTextColor="#fff"
+              tintColor="#fff"
               translucent={true}
             />
           </View>

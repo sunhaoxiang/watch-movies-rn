@@ -69,7 +69,7 @@ class SearchForm extends Component {
         <View style={styles.inputWrapper}>
           <TextInput
             style={styles.input}
-            placeholder="搜索..."
+            placeholder="请输入要搜索的内容..."
             returnKeyType="search"
             enablesReturnKeyAutomatically={true}
             onChangeText={(query) => {this.changeTextHandler(query)}}
@@ -77,7 +77,7 @@ class SearchForm extends Component {
           />
           <ActivityIndicator
             size="small"
-            color="#6435c9"
+            color="#e5120c"
             animating={loading}
             style={[styles.inputLoading, {opacity}]}
           />

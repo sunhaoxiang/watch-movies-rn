@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#eae7ff'
+    backgroundColor: '#fff'
   },
   headerSpace: {
     marginTop: 60,
@@ -39,8 +39,8 @@ export default StyleSheet.create({
   itemHeader: {
     fontSize: 18,
     fontFamily: 'Helvetica Neue',
-    fontWeight: '300',
-    color: '#6435c9',
+    fontWeight: '500',
+    color: '#000',
     marginBottom: 6
   },
   itemMeta: {
@@ -54,12 +54,12 @@ export default StyleSheet.create({
     marginBottom: 6
   },
   redText: {
-    color: '#db2828',
+    color: '#e5120c',
     fontSize: 15
   },
   title: {
     fontSize: 26,
-    color: '#6435c9',
+    color: '#e5120c',
     textAlign: 'center',
     fontStyle: 'italic',
     letterSpacing: 2,
