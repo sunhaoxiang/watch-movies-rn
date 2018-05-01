@@ -92,12 +92,18 @@ export default StyleSheet.create({
     marginBottom: 5
   },
   detailSummaryWrapper: {
-    paddingTop: 20,
-    paddingBottom: 40
+    paddingTop: 20
   },
   detailSummary: {
     marginBottom: 15,
     paddingLeft: 6,
     paddingRight: 6
+  },
+  loadMoreWrapper: {
+    marginVertical: 20,
+    alignSelf: 'center'
+  },
+  loadMoreText: {
+    color: 'rgba(0, 0, 0, 0.3)'
   }
 })

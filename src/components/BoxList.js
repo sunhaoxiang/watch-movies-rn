@@ -51,8 +51,9 @@ class BoxList extends Component {
 
   // 点击电影详情
   showBoxDetailHandler = (data) => {
+    const { title } = data
     this.props.navigator.push({
-      title: data.title,
+      title: title,
       component: MovieDetail,
       passProps: {
         detailData: data

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import {
-  FlatList
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator
 } from 'react-native'
 import PropTypes from 'prop-types'
 import MovieItem from './MovieItem'
@@ -19,19 +22,36 @@ class MovieList extends Component {
 
   state = {
     movies: [], // 电影列表
-    loading: true // 加载状态
+    loading: true, // 加载状态
+    count: 20,
+    start: 0,
+    total: 0
   }
 
   // 请求电影列表数据
   fetchMovieList = () => {
 	  const { requestUrl } = this.props
-    fetch(requestUrl)
+
+    const {
+	    count,
+      start
+    } = this.state
+
+    fetch(`${requestUrl}?count=${count}&start=${start}`)
       .then(res => res.json())
       .then(data => {
-      	const { subjects } = data
+      	const {
+      	  subjects,
+          total
+      	} = data
+        const newStart = start + count
+
         this.setState({
           movies: subjects,
-          loading: false
+          loading: false,
+          start: newStart,
+          total,
+          readyToFetch: true
         })
       })
   }
@@ -49,10 +69,79 @@ class MovieList extends Component {
   // 生成列表的key
   keyExtractorHandler = item => item.id
 
+  // 滑动到底部时加载新数据
+  endReachedHandler = () => {
+    const {
+      start,
+      total
+    } = this.state
+
+    if (start < total) {
+      this.loadMore()
+    }
+  }
+
+  // 加载更多
+  loadMore = () => {
+    const { requestUrl } = this.props
+
+    const {
+      count,
+      start,
+      readyToFetch
+    } = this.state
+
+    // 防止重复请求
+    if (!readyToFetch) {
+      return
+    }
+
+    this.setState({
+      readyToFetch: false
+    })
+
+    fetch(`${requestUrl}?count=${count}&start=${start}`)
+      .then(res => res.json())
+      .then(data => {
+        const { movies } = this.state
+        const { subjects } = data
+        const newStart = start + count
+
+        this.setState({
+          movies: [...movies, ...subjects],
+          start: newStart,
+          readyToFetch: true
+        })
+      })
+  }
+
+  // 加载时的loading效果
+  renderFooterHandler = () => {
+    const {
+      start,
+      total
+    } = this.state
+
+    if (start < total) {
+      return (
+        <View style={styles.loadMoreWrapper}>
+          <ActivityIndicator />
+        </View>
+      )
+    } else {
+      return (
+        <View style={styles.loadMoreWrapper}>
+          <Text style={styles.loadMoreText}>没有可以显示的内容了: )</Text>
+        </View>
+      )
+    }
+  }
+
   // 点击电影详情
   showMovieDetailHandler = (data) => {
+    const { title } = data
     this.props.navigator.push({
-      title: data.title,
+      title,
       component: MovieDetail,
       passProps: {
         detailData: data
@@ -68,7 +157,8 @@ class MovieList extends Component {
   render () {
   	const {
   		loading,
-		  movies
+		  movies,
+      count
   	} = this.state
 
     // 电影列表数据未加载完成
@@ -83,8 +173,11 @@ class MovieList extends Component {
       <FlatList
         style={styles.headerSpace}
         data={movies}
+        initialNumToRender={count}
+        ListFooterComponent={this.renderFooterHandler}
         renderItem={this.renderMovieListHandler}
         keyExtractor={this.keyExtractorHandler}
+        onEndReached={this.endReachedHandler}
       />
     )
   }
