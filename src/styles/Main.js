@@ -105,5 +105,20 @@ export default StyleSheet.create({
   },
   loadMoreText: {
     color: 'rgba(0, 0, 0, 0.3)'
+  },
+  inputWrapper: {
+    paddingTop: 7,
+    paddingLeft: 7,
+    paddingRight: 7,
+    borderColor: "rgba(100, 53, 201, 0.1)",
+    borderBottomWidth: 1
+  },
+  input: {
+    height: 50
+  },
+  inputLoading: {
+    position: 'absolute',
+    top: 20,
+    right: 10
   }
 })

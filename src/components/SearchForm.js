@@ -65,17 +65,10 @@ class SearchForm extends Component {
 
     return (
       <View style={styles.headerSpace}>
-        <View style={{
-          paddingTop: 7,
-          paddingLeft: 7,
-          paddingRight: 7,
-          borderColor: "rgba(100, 53, 201, 0.1)",
-          borderBottomWidth: 1
-        }}>
+        <View style={styles.inputWrapper}>
           <TextInput
-            style={{height: 50}}
+            style={styles.input}
             placeholder="搜索..."
-            clearButtonMode="while-editing"
             returnKeyType="search"
             enablesReturnKeyAutomatically={true}
             onChangeText={(query) => {this.changeTextHandler(query)}}
@@ -85,12 +78,7 @@ class SearchForm extends Component {
             size="small"
             color="#6435c9"
             animating={loading}
-            style={{
-              position: 'absolute',
-              top: 20,
-              right: 10,
-              opacity
-            }}
+            style={[styles.inputLoading, {opacity}]}
           />
         </View>
       </View>

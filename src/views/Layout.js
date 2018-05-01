@@ -14,7 +14,7 @@ import icons from '../assets/Icons'
 
 class Layout extends Component {
   state = {
-    selectedTab: 'top250'
+    selectedTab: 'inTheater'
   }
 
   render () {

@@ -131,7 +131,7 @@ class MovieList extends Component {
     } else {
       return (
         <View style={styles.loadMoreWrapper}>
-          <Text style={styles.loadMoreText}>没有可以显示的内容了: )</Text>
+          <Text style={styles.loadMoreText}>没有可以显示的内容了 : )</Text>
         </View>
       )
     }
