@@ -10,7 +10,7 @@ export default StyleSheet.create({
     marginBottom: 40
   },
   headerSpaceIphoneX: {
-    marginTop: 82,
+    marginTop: 88,
     marginBottom: 82
   },
   loading: {
