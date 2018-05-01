@@ -5,6 +5,7 @@ import {
   Text,
   Image
 } from 'react-native'
+import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 
 const Detail = (props) => {
@@ -40,7 +41,7 @@ const Detail = (props) => {
   })
 
   return (
-    <ScrollView style={styles.headerSpace}>
+    <ScrollView style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}>
       <View style={styles.detailImageWrapper}>
         <Image
           source={{uri: large}}

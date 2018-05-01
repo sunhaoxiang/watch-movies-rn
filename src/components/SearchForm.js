@@ -5,6 +5,7 @@ import {
   ActivityIndicator
 } from 'react-native'
 import SearchResult from '../views/SearchResult'
+import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 
 class SearchForm extends Component {
@@ -64,7 +65,7 @@ class SearchForm extends Component {
     } = this.state
 
     return (
-      <View style={styles.headerSpace}>
+      <View style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}>
         <View style={styles.inputWrapper}>
           <TextInput
             style={styles.input}

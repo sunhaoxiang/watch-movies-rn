@@ -5,8 +5,9 @@ import {
 import PropTypes from 'prop-types'
 import BoxItem from './BoxItem'
 import LoadingSpin from './LoadingSpin'
-import styles from '../styles/Main'
 import MovieDetail from "../views/MovieDetail"
+import isIphoneX from '../utils/isIphoneX'
+import styles from '../styles/Main'
 
 class BoxList extends Component {
   static defaultProps = {
@@ -82,7 +83,7 @@ class BoxList extends Component {
     // 电影列表数据加载完成
     return (
       <FlatList
-        style={styles.headerSpace}
+        style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}
         data={movies}
         renderItem={this.renderBoxListHandler}
         keyExtractor={this.keyExtractorHandler}

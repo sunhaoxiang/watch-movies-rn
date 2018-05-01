@@ -7,8 +7,9 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 import MovieItem from './MovieItem'
-import MovieDetail from '../views/MovieDetail'
 import LoadingSpin from './LoadingSpin'
+import MovieDetail from '../views/MovieDetail'
+import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 
 class MovieList extends Component {
@@ -171,7 +172,7 @@ class MovieList extends Component {
     // 电影列表数据加载完成
     return (
       <FlatList
-        style={styles.headerSpace}
+        style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}
         data={movies}
         initialNumToRender={count}
         ListFooterComponent={this.renderFooterHandler}
