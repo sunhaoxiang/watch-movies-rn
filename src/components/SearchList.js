@@ -1,27 +1,38 @@
 import React, { Component } from 'react'
 import {
-  FlatList
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator
 } from 'react-native'
 import PropTypes from 'prop-types'
 import MovieItem from './MovieItem'
 import MovieDetail from '../views/MovieDetail'
+import styles from "../styles/Main"
 
 class SearchList extends Component {
   static defaultProps = {
-    searchData: []
+    searchData: {},
+    query: ''
   }
 
   static propTypes = {
-    searchData: PropTypes.array.isRequired
+    searchData: PropTypes.object.isRequired,
+    query: PropTypes.string.isRequired
   }
 
   state = {
-    movies: [], // 电影列表
-    loading: true // 加载状态
+    requestUrl: 'https://api.douban.com/v2/movie/search',
+    query: '',
+    movies: [],
+    count: 20,
+    start: 0,
+    total: 0,
+    readyToFetch: true
   }
 
   // 渲染电影列表
-  renderMovieListHandler = ({item}) => {
+  renderSearchListHandler = ({item}) => {
     return (
       <MovieItem
         itemData={item}
@@ -45,14 +56,109 @@ class SearchList extends Component {
     })
   }
 
+  // 滑动到底部时加载新数据
+  endReachedHandler = () => {
+    const {
+      start,
+      total
+    } = this.state
+
+    if (start < total) {
+      this.loadMore()
+    }
+  }
+
+  // 加载更多
+  loadMore = () => {
+    const {
+      requestUrl,
+      query,
+      count,
+      start,
+      readyToFetch
+    } = this.state
+
+    // 防止重复请求
+    if (!readyToFetch) {
+      return
+    }
+
+    this.setState({
+      readyToFetch: false
+    })
+
+    fetch(`${requestUrl}?q=${query}&count=${count}&start=${start}`)
+      .then(res => res.json())
+      .then(data => {
+        const { movies } = this.state
+        const { subjects } = data
+        const newStart = start + count
+
+        this.setState({
+          movies: [...movies, ...subjects],
+          start: newStart,
+          readyToFetch: true
+        })
+      })
+  }
+
+  componentDidMount () {
+    const {
+      searchData: {
+        query,
+        count,
+        start,
+        total,
+        subjects
+      }
+    } = this.props
+
+    const newStart = start + count
+
+    this.setState({
+      query,
+      start: newStart,
+      total,
+      movies: subjects
+    })
+  }
+
+  // 加载时的loading效果
+  renderFooterHandler = () => {
+    const {
+      start,
+      total
+    } = this.state
+
+    if (start < total) {
+      return (
+        <View style={styles.loadMoreWrapper}>
+          <ActivityIndicator />
+        </View>
+      )
+    } else {
+      return (
+        <View style={styles.loadMoreWrapper}>
+          <Text style={styles.loadMoreText}>没有可以显示的内容了 : )</Text>
+        </View>
+      )
+    }
+  }
+
   render () {
-    const { searchData } = this.props
+    const {
+      movies,
+      count
+    } = this.state
 
     return (
       <FlatList
-        data={searchData}
-        renderItem={this.renderMovieListHandler}
+        data={movies}
+        initialNumToRender={count}
+        ListFooterComponent={this.renderFooterHandler}
+        renderItem={this.renderSearchListHandler}
         keyExtractor={this.keyExtractorHandler}
+        onEndReached={this.endReachedHandler}
       />
     )
   }

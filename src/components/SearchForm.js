@@ -36,7 +36,7 @@ class SearchForm extends Component {
       opacity: 1
     })
 
-    fetch(`${requestUrl}?q=${query}`)
+    fetch(`${requestUrl}?q=${query}&count=20&start=0`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -44,14 +44,16 @@ class SearchForm extends Component {
           opacity: 0
         })
         const {
-          title,
-          subjects
+          title
         } = data
         navigator.push({
           title: title,
           component: SearchResult,
           passProps: {
-            searchData: subjects
+            searchData: {
+              query,
+              ...data
+            }
           }
         })
       })

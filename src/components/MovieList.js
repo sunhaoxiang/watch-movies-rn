@@ -26,7 +26,8 @@ class MovieList extends Component {
     loading: true, // 加载状态
     count: 20,
     start: 0,
-    total: 0
+    total: 0,
+    readyToFetch: true
   }
 
   // 请求电影列表数据
@@ -51,8 +52,7 @@ class MovieList extends Component {
           movies: subjects,
           loading: false,
           start: newStart,
-          total,
-          readyToFetch: true
+          total
         })
       })
   }
