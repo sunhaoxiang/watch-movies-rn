@@ -24,13 +24,13 @@ const Detail = (props) => {
     summary
   } = props.detail
 
-  const directorsShow = directors.map(item => item.name).join('/')
+  const directorsShow = directors.map(item => item.name).join(' / ')
 
-  const castsShow = casts.map(item => item.name).join('/')
+  const castsShow = casts.map(item => item.name).join(' / ')
 
-  const genresShow = genres.join('/')
+  const genresShow = genres.join(' / ')
 
-  const countriesShow = countries.join('/')
+  const countriesShow = countries.join(' / ')
 
   const splitSummary = summary.split(/\n/).map((item, index) => {
     return (

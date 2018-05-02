@@ -23,6 +23,8 @@ const BoxItem = (props) => {
     onItemPress
   } = props
 
+  const boxShow = box.toString().length < 9 ? `${(box / 10000).toFixed(0)} 万` : `${(box / 100000000).toFixed(1)} 亿`
+
   return (
     <TouchableHighlight
       underlayColor="rgba(34, 26, 38, 0.1)"
@@ -38,7 +40,7 @@ const BoxItem = (props) => {
         <View style={styles.itemContent}>
           <Text style={styles.itemHeader}>{title}</Text>
           <Text style={styles.itemMeta}>{`${original_title} (${year})`}</Text>
-          <Text style={styles.yellowText}>{`${(box / 10000).toFixed(0)}万`}</Text>
+          <Text style={styles.yellowText}>{boxShow}</Text>
           <Text style={styles.redText}>{average ? average.toFixed(1) : '暂无评分'}</Text>
         </View>
       </View>
