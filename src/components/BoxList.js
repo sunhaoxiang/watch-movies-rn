@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {
+  View,
+  Text,
   FlatList
 } from 'react-native'
 import PropTypes from 'prop-types'
@@ -62,6 +64,15 @@ class BoxList extends Component {
     })
   }
 
+  // 加载时的loading效果
+  renderFooterHandler = () => {
+    return (
+      <View style={styles.loadMoreWrapper}>
+        <Text style={styles.loadMoreText}>没有可以显示的内容了 : )</Text>
+      </View>
+    )
+  }
+
   componentDidMount () {
     // 开始请求电影列表数据
     this.fetchBoxList()
@@ -85,6 +96,7 @@ class BoxList extends Component {
       <FlatList
         style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}
         data={movies}
+        ListFooterComponent={this.renderFooterHandler}
         renderItem={this.renderBoxListHandler}
         keyExtractor={this.keyExtractorHandler}
       />
