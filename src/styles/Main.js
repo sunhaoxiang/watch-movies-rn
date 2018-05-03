@@ -124,5 +124,18 @@ export default StyleSheet.create({
     position: 'absolute',
     top: 20,
     right: 10
+  },
+  searchHeader: {
+    color: 'rgba(0, 0, 0, 0.8)',
+    fontSize: 18,
+    marginTop: 30,
+    marginLeft: 10
+  },
+  searchText: {
+    fontSize: 18,
+    fontFamily: 'Helvetica Neue',
+    fontWeight: '300',
+    color: '#e5120c',
+    marginBottom: 6
   }
 })

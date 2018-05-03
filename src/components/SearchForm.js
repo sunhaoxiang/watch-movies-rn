@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import {
   View,
+  Text,
   TextInput,
-  ActivityIndicator
+  ActivityIndicator,
+  FlatList,
+  TouchableHighlight
 } from 'react-native'
 import SearchResult from '../views/SearchResult'
 import isIphoneX from '../utils/isIphoneX'
@@ -13,7 +16,8 @@ class SearchForm extends Component {
     requestUrl: 'https://api.douban.com/v2/movie/search',
     query: '',
     loading: false,
-    opacity: 0
+    opacity: 0,
+    searchHistory: ['fargo', 'matrix', 'up']
   }
 
   // 获取用户输入的内容
@@ -30,6 +34,8 @@ class SearchForm extends Component {
       query
     } = this.state
     const { navigator } = this.props
+
+    this.saveSearchHistoryHandler()
 
     this.setState({
       loading: true,
@@ -60,14 +66,53 @@ class SearchForm extends Component {
 
   }
 
+  // 储存搜索历史
+  saveSearchHistoryHandler = () => {
+    const {
+      query,
+      searchHistory
+    } = this.state
+    const newSearchHistory = [...new Set([query, ...searchHistory])]
+
+    this.setState({
+      searchHistory: newSearchHistory
+    })
+  }
+
+  // 从历史记录搜索
+  SearchHistoryHandler = item => {
+    this.setState({
+      query: item
+    }, this.fetchSearchText)
+  }
+
+  // 渲染搜索历史列表
+  renderSearchHistoryListHandler = ({item}) => {
+    return (
+      <TouchableHighlight
+        underlayColor="rgba(34, 26, 38, 0.1)"
+        onPress={() => {this.SearchHistoryHandler(item)}}
+      >
+        <View style={styles.item}>
+          <View style={styles.itemContent}>
+            <Text style={styles.searchText}>{item}</Text>
+          </View>
+        </View>
+      </TouchableHighlight>
+    )
+  }
+
+  keyExtractorHandler = item => item
+
   render () {
     const {
       loading,
-      opacity
+      opacity,
+      searchHistory
     } = this.state
 
     return (
-      <View style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}>
+      <View style={[styles.container, isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace]}>
         <View style={styles.inputWrapper}>
           <TextInput
             style={styles.input}
@@ -84,6 +129,12 @@ class SearchForm extends Component {
             style={[styles.inputLoading, {opacity}]}
           />
         </View>
+        <Text style={styles.searchHeader}>搜索历史</Text>
+        <FlatList
+          data={searchHistory}
+          renderItem={this.renderSearchHistoryListHandler}
+          keyExtractor={this.keyExtractorHandler}
+        />
       </View>
     )
   }
