@@ -8,7 +8,7 @@ import {
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 
-const Detail = (props) => {
+const Detail = props => {
   const {
     images: {
       large

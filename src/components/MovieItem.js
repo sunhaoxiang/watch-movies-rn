@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import styles from '../styles/Main'
 
-const MovieItem = (props) => {
+const MovieItem = props => {
   const {
     itemData,
     itemData: {

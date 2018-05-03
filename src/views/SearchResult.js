@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchList from '../components/SearchList'
 
-SearchResult = (props) => {
+SearchResult = props => {
   return (
     <SearchList
       searchData={props.searchData}

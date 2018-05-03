@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import styles from '../styles/Main'
 
-const BoxItem = (props) => {
+const BoxItem = props => {
   const {
     itemData: {
       box,
