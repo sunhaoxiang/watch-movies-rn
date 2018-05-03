@@ -3,13 +3,16 @@ import {
   View,
   Text,
   TextInput,
+  Image,
   ActivityIndicator,
   FlatList,
-  TouchableHighlight
+  TouchableHighlight,
+  AsyncStorage
 } from 'react-native'
 import SearchResult from '../views/SearchResult'
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
+import icons from '../assets/Icons'
 
 class SearchForm extends Component {
   state = {
@@ -17,7 +20,7 @@ class SearchForm extends Component {
     query: '',
     loading: false,
     opacity: 0,
-    searchHistory: ['fargo', 'matrix', 'up']
+    searchHistory: []
   }
 
   // 获取用户输入的内容
@@ -74,9 +77,29 @@ class SearchForm extends Component {
     } = this.state
     const newSearchHistory = [...new Set([query, ...searchHistory])]
 
-    this.setState({
-      searchHistory: newSearchHistory
-    })
+    AsyncStorage
+      .setItem('searchHistory', JSON.stringify(newSearchHistory))
+      .then(() => {
+        this.setState({
+          searchHistory: newSearchHistory
+        })
+      })
+  }
+
+  // 删除搜索记录
+  deleteSearchHistoryHandler = (item) => {
+    const { searchHistory } = this.state
+    const newSearchHistory = new Set(searchHistory)
+
+    newSearchHistory.delete(item)
+
+    AsyncStorage
+      .setItem('searchHistory', JSON.stringify([...newSearchHistory]))
+      .then(() => {
+        this.setState({
+          searchHistory: [...newSearchHistory]
+        })
+      })
   }
 
   // 从历史记录搜索
@@ -94,6 +117,15 @@ class SearchForm extends Component {
         onPress={() => {this.SearchHistoryHandler(item)}}
       >
         <View style={styles.item}>
+          <TouchableHighlight
+            underlayColor="#fff"
+            onPress={() => {this.deleteSearchHistoryHandler(item)}}
+          >
+            <Image
+              source={{uri: icons.delete}}
+              style={styles.deleteIcon}
+            />
+          </TouchableHighlight>
           <View style={styles.itemContent}>
             <Text style={styles.searchText}>{item}</Text>
           </View>
@@ -104,8 +136,21 @@ class SearchForm extends Component {
 
   keyExtractorHandler = item => item
 
+  componentDidMount () {
+    AsyncStorage
+      .getItem('searchHistory')
+      .then(val => {
+        if (val) {
+          this.setState({
+            searchHistory: JSON.parse(val)
+          })
+        }
+      })
+  }
+
   render () {
     const {
+      query,
       loading,
       opacity,
       searchHistory
@@ -115,6 +160,7 @@ class SearchForm extends Component {
       <View style={[styles.container, isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace]}>
         <View style={styles.inputWrapper}>
           <TextInput
+            value={query}
             style={styles.input}
             placeholder="请输入要搜索的内容..."
             returnKeyType="search"

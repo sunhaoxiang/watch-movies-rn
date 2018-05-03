@@ -135,7 +135,13 @@ export default StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Helvetica Neue',
     fontWeight: '300',
-    color: '#e5120c',
+    color: '#aaa',
     marginBottom: 6
+  },
+  deleteIcon: {
+    width: 20,
+    height: 20,
+    margin: 10,
+    opacity: 0.6
   }
 })
