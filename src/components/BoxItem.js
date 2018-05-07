@@ -16,7 +16,6 @@ const BoxItem = props => {
         images: { large },
         title,
         original_title,
-        year,
         rating: { average }
       }
     },
@@ -39,9 +38,9 @@ const BoxItem = props => {
         />
         <View style={styles.itemContent}>
           <Text style={styles.itemHeader}>{title}</Text>
-          <Text style={styles.itemMeta}>{`${original_title} (${year})`}</Text>
-          <Text style={styles.yellowText}>{boxShow}</Text>
-          <Text style={styles.redText}>{average ? average.toFixed(1) : '暂无评分'}</Text>
+          <Text style={styles.itemMeta}>{original_title}</Text>
+          <Text style={styles.redText}>{boxShow}</Text>
+          <Text style={styles.yellowText}>{average ? average.toFixed(1) : '暂无评分'}</Text>
         </View>
       </View>
     </TouchableHighlight>

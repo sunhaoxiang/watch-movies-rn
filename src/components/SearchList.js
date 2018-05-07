@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import MovieItem from './MovieItem'
 import MovieDetail from '../views/MovieDetail'
 import styles from "../styles/Main"
 
-class SearchList extends Component {
+class SearchList extends PureComponent {
   static defaultProps = {
     searchData: {},
     query: ''

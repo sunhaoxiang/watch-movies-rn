@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import MovieDetail from '../views/MovieDetail'
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 
-class MovieList extends Component {
+class MovieList extends PureComponent {
   static defaultProps = {
     requestUrl: ''
   }
@@ -59,9 +59,12 @@ class MovieList extends Component {
 
   // 渲染电影列表
   renderMovieListHandler = ({item}) => {
+    const { showYear } =this.props
+
   	return (
   		<MovieItem
         itemData={item}
+        showYear={showYear}
         onItemPress={this.showMovieDetailHandler}
       />
 	  )

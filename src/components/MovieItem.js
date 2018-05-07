@@ -15,10 +15,16 @@ const MovieItem = props => {
       title,
       original_title,
       year,
+      genres,
       rating: { average }
     },
+    showYear,
     onItemPress
   } = props
+
+  const originalTitle = showYear ? `${original_title} (${year})` : original_title
+
+  const genresShow = genres.join(' / ')
 
   return (
     <TouchableHighlight
@@ -34,8 +40,9 @@ const MovieItem = props => {
         />
         <View style={styles.itemContent}>
           <Text style={styles.itemHeader}>{title}</Text>
-          <Text style={styles.itemMeta}>{`${original_title} (${year})`}</Text>
-          <Text style={styles.redText}>{average ? average.toFixed(1) : '暂无评分'}</Text>
+          <Text style={styles.itemMeta}>{originalTitle}</Text>
+          <Text style={styles.redText}>{genresShow}</Text>
+          <Text style={styles.yellowText}>{average ? average.toFixed(1) : '暂无评分'}</Text>
         </View>
       </View>
     </TouchableHighlight>

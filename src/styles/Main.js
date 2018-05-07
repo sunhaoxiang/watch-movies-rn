@@ -37,7 +37,7 @@ export default StyleSheet.create({
     marginTop: 6
   },
   itemHeader: {
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Helvetica Neue',
     fontWeight: '500',
     color: '#000',
@@ -45,17 +45,17 @@ export default StyleSheet.create({
   },
   itemMeta: {
     fontSize: 16,
-    color: 'rgba(0, 0, 0, 0.6)',
-    marginBottom: 6
-  },
-  yellowText: {
-    color: '#f5be0b',
-    fontSize: 16,
-    marginBottom: 6
+    color: 'rgba(0, 0, 0, 0.4)',
+    marginBottom: 12
   },
   redText: {
     color: '#e5120c',
-    fontSize: 15
+    fontSize: 14,
+    marginBottom: 10
+  },
+  yellowText: {
+    color: '#f5be0b',
+    fontSize: 14
   },
   title: {
     fontSize: 26,

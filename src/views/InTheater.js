@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import MovieList from '../components/MovieList'
 
-class InTheater extends Component {
+class InTheater extends PureComponent {
   state = {
     requestUrl: 'https://api.douban.com/v2/movie/in_theaters'
   }
@@ -12,6 +12,7 @@ class InTheater extends Component {
     return (
       <MovieList
         requestUrl={requestUrl}
+        showYear={false}
         navigator={this.props.navigator}
       />
     )

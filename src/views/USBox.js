@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import BoxList from '../components/BoxList'
 
-class USBox extends Component {
+class USBox extends PureComponent {
   state = {
     requestUrl: 'https://api.douban.com/v2/movie/us_box'
   }

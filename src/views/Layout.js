@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
   View,
   StatusBar,
@@ -12,7 +12,7 @@ import Search from './Search'
 import styles from '../styles/Main'
 import icons from '../assets/Icons'
 
-class Layout extends Component {
+class Layout extends PureComponent {
   state = {
     selectedTab: 'inTheater'
   }

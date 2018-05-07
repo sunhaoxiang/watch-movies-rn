@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
   View,
   Text,
@@ -11,7 +11,7 @@ import MovieDetail from "../views/MovieDetail"
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 
-class BoxList extends Component {
+class BoxList extends PureComponent {
   static defaultProps = {
     requestUrl: ''
   }
