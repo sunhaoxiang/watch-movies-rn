@@ -8,6 +8,7 @@ import {
 import PropTypes from 'prop-types'
 import MovieItem from './MovieItem'
 import MovieDetail from '../views/MovieDetail'
+import { searchUrl } from '../config/requestUrl'
 import styles from "../styles/Main"
 
 class SearchList extends PureComponent {
@@ -22,7 +23,6 @@ class SearchList extends PureComponent {
   }
 
   state = {
-    requestUrl: 'https://api.douban.com/v2/movie/search',
     query: '',
     movies: [],
     count: 20,
@@ -71,7 +71,6 @@ class SearchList extends PureComponent {
   // 加载更多
   loadMore = () => {
     const {
-      requestUrl,
       query,
       count,
       start,
@@ -87,7 +86,7 @@ class SearchList extends PureComponent {
       readyToFetch: false
     })
 
-    fetch(`${requestUrl}?q=${query}&count=${count}&start=${start}`)
+    fetch(`${searchUrl}?q=${query}&count=${count}&start=${start}`)
       .then(res => res.json())
       .then(data => {
         const { movies } = this.state

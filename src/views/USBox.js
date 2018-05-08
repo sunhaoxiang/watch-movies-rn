@@ -1,21 +1,16 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import BoxList from '../components/BoxList'
+import { USBoxUrl } from '../config/requestUrl'
 
-class USBox extends PureComponent {
-  state = {
-    requestUrl: 'https://api.douban.com/v2/movie/us_box'
-  }
+const USBox = props => {
+  const { navigator } = props
 
-  render () {
-    const { requestUrl } = this.state
-
-    return (
-      <BoxList
-        requestUrl={requestUrl}
-        navigator={this.props.navigator}
-      />
-    )
-  }
+  return (
+    <BoxList
+      requestUrl={USBoxUrl}
+      navigator={navigator}
+    />
+  )
 }
 
 export default USBox

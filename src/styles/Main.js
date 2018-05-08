@@ -41,16 +41,16 @@ export default StyleSheet.create({
     fontFamily: 'Helvetica Neue',
     fontWeight: '400',
     color: '#000',
-    marginBottom: 6
+    marginBottom: 2
   },
   itemOriginalTitle: {
-    fontSize: 16,
+    fontSize: 12,
     fontFamily: 'Helvetica Neue',
     color: 'rgba(0, 0, 0, 0.4)',
     marginBottom: 10
   },
   itemMeta: {
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: 'Helvetica Neue',
     color: 'rgba(0, 0, 0, 0.4)',
     marginBottom: 10
@@ -58,12 +58,6 @@ export default StyleSheet.create({
   averageWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10
-  },
-  boxText: {
-    color: '#e5120c',
-    fontSize: 14,
-    fontFamily: 'Helvetica Neue',
     marginBottom: 10
   },
   ratingTextWrapper: {
@@ -81,6 +75,12 @@ export default StyleSheet.create({
     fontFamily: 'Helvetica Neue',
     color: '#000'
   },
+  boxText: {
+    color: '#e5120c',
+    fontSize: 16,
+    fontFamily: 'Helvetica Neue',
+    marginBottom: 10
+  },
   title: {
     fontSize: 26,
     color: '#e5120c',
@@ -96,7 +96,7 @@ export default StyleSheet.create({
     fontFamily: 'Helvetica Neue',
     fontWeight: '300',
     color: 'rgba(0, 0, 0, 0.8)',
-    lineHeight: 26,
+    lineHeight: 26
   },
   detailImageWrapper: {
     flexDirection: 'row',

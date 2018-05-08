@@ -1,23 +1,22 @@
 import React, { Component } from 'react'
 import Detail from '../components/Detail'
 import LoadingSpin from '../components/LoadingSpin'
+import { MovieDetailUrl } from '../config/requestUrl'
 
 class MovieDetail extends Component {
   state = {
-    requestUrl: 'https://api.douban.com/v2/movie/subject', // 电影详情API
     detail: {}, // 电影详情
     loading: true // 加载状态
   }
 
   // 请求电影详情数据
   fetchMovieDetail = () => {
-    const { requestUrl } = this.state
     const {
       detailData: {
         id
       }
     } = this.props
-    fetch(`${requestUrl}/${id}`)
+    fetch(`${MovieDetailUrl}/${id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

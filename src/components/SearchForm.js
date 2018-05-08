@@ -10,13 +10,13 @@ import {
   AsyncStorage
 } from 'react-native'
 import SearchResult from '../views/SearchResult'
+import { searchUrl } from '../config/requestUrl'
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 import icons from '../assets/Icons'
 
 class SearchForm extends Component {
   state = {
-    requestUrl: 'https://api.douban.com/v2/movie/search',
     query: '',
     loading: false,
     opacity: 0,
@@ -32,10 +32,7 @@ class SearchForm extends Component {
 
   // 请求用户搜索的数据
   fetchSearchText = () => {
-    const {
-      requestUrl,
-      query
-    } = this.state
+    const { query } = this.state
     const { navigator } = this.props
 
     this.saveSearchHistoryHandler()
@@ -45,7 +42,7 @@ class SearchForm extends Component {
       opacity: 1
     })
 
-    fetch(`${requestUrl}?q=${query}&count=20&start=0`)
+    fetch(`${searchUrl}?q=${query}&count=20&start=0`)
       .then(res => res.json())
       .then(data => {
         this.setState({

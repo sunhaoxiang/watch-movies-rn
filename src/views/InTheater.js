@@ -1,22 +1,17 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import MovieList from '../components/MovieList'
+import { InTheaterUrl } from '../config/requestUrl'
 
-class InTheater extends PureComponent {
-  state = {
-    requestUrl: 'https://api.douban.com/v2/movie/in_theaters'
-  }
+const InTheater = props => {
+  const { navigator } = props
 
-  render () {
-    const { requestUrl } = this.state
-
-    return (
-      <MovieList
-        requestUrl={requestUrl}
-        showYear={false}
-        navigator={this.props.navigator}
-      />
-    )
-  }
+  return (
+    <MovieList
+      requestUrl={InTheaterUrl}
+      showYear={false}
+      navigator={navigator}
+    />
+  )
 }
 
 export default InTheater
