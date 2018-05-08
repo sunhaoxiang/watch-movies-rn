@@ -24,6 +24,7 @@ class MovieList extends PureComponent {
   state = {
     movies: [], // 电影列表
     loading: true, // 加载状态
+    refreshing: false, // 刷新状态
     count: 20,
     start: 0,
     total: 0,
@@ -51,6 +52,7 @@ class MovieList extends PureComponent {
         this.setState({
           movies: subjects,
           loading: false,
+          refreshing: false,
           start: newStart,
           total
         })
@@ -72,6 +74,14 @@ class MovieList extends PureComponent {
 
   // 生成列表的key
   keyExtractorHandler = item => item.id
+
+  // 上滑刷新数据
+  refreshHandler = () => {
+    this.setState({
+      refreshing: true,
+      start: 0
+    }, this.fetchMovieList)
+  }
 
   // 滑动到底部时加载新数据
   endReachedHandler = () => {
@@ -161,6 +171,7 @@ class MovieList extends PureComponent {
   render () {
   	const {
   		loading,
+      refreshing,
 		  movies,
       count
   	} = this.state
@@ -181,6 +192,8 @@ class MovieList extends PureComponent {
         ListFooterComponent={this.renderFooterHandler}
         renderItem={this.renderMovieListHandler}
         keyExtractor={this.keyExtractorHandler}
+        refreshing={refreshing}
+        onRefresh={this.refreshHandler}
         onEndReached={this.endReachedHandler}
       />
     )

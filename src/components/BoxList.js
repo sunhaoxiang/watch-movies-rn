@@ -22,7 +22,8 @@ class BoxList extends PureComponent {
 
   state = {
     movies: [], // 电影列表
-    loading: true // 加载状态
+    loading: true, // 加载状态
+    refreshing: true // 刷新状态
   }
 
   // 请求电影列表数据
@@ -34,7 +35,8 @@ class BoxList extends PureComponent {
         const { subjects } = data
         this.setState({
           movies: subjects,
-          loading: false
+          loading: false,
+          refreshing: false
         })
       })
   }
@@ -51,6 +53,14 @@ class BoxList extends PureComponent {
 
   // 生成列表的key
   keyExtractorHandler = item => item.subject.id
+
+  // 上滑刷新数据
+  refreshHandler = () => {
+    this.setState({
+      refreshing: true,
+      start: 0
+    }, this.fetchBoxList)
+  }
 
   // 点击电影详情
   showBoxDetailHandler = (data) => {
@@ -81,6 +91,7 @@ class BoxList extends PureComponent {
   render () {
     const {
       loading,
+      refreshing,
       movies
     } = this.state
 
@@ -99,6 +110,8 @@ class BoxList extends PureComponent {
         ListFooterComponent={this.renderFooterHandler}
         renderItem={this.renderBoxListHandler}
         keyExtractor={this.keyExtractorHandler}
+        refreshing={refreshing}
+        onRefresh={this.refreshHandler}
       />
     )
   }
