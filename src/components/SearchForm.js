@@ -153,6 +153,8 @@ class SearchForm extends Component {
       searchHistory
     } = this.state
 
+    const searchHeader = searchHistory.length > 0 ? (<Text style={styles.searchHeader}>搜索历史</Text>) : null
+
     return (
       <View style={[styles.container, isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace]}>
         <View style={styles.inputWrapper}>
@@ -172,7 +174,7 @@ class SearchForm extends Component {
             style={[styles.inputLoading, {opacity}]}
           />
         </View>
-        <Text style={styles.searchHeader}>搜索历史</Text>
+        {searchHeader}
         <FlatList
           data={searchHistory}
           renderItem={this.renderSearchHistoryListHandler}
