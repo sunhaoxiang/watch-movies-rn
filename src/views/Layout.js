@@ -6,6 +6,7 @@ import {
   TabBarIOS
 } from 'react-native'
 import InTheater from './InTheater'
+import ComingSoon from './ComingSoon'
 import USBox from './USBox'
 import TOP250 from './TOP250'
 import Search from './Search'
@@ -52,6 +53,42 @@ class Layout extends PureComponent {
               initialRoute={{
                 title: '正在热映',
                 component: InTheater
+              }}
+              shadowHidden={true}
+              barTintColor="#e5120c"
+              titleTextColor="#fff"
+              tintColor="#fff"
+              translucent={true}
+            />
+          </View>
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          icon={{
+            uri: icons.camera,
+            scale: 4.6
+          }}
+          selectedIcon={{
+            uri: icons.cameraActive,
+            scale: 4.6
+          }}
+          title="即将上映"
+          selected={selectedTab === 'comingSoon'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'comingSoon'
+            })
+          }}
+        >
+          <View style={styles.container}>
+            <StatusBar
+              backgroundColor="blue"
+              barStyle="light-content"
+            />
+            <NavigatorIOS
+              style={styles.container}
+              initialRoute={{
+                title: '即将上映',
+                component: ComingSoon
               }}
               shadowHidden={true}
               barTintColor="#e5120c"
