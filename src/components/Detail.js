@@ -53,7 +53,7 @@ const Detail = props => {
           <Text style={styles.detailText}>{`类型：${genresShow}`}</Text>
           <Text style={styles.detailText}>{`国家：${countriesShow}`}</Text>
           <Text style={styles.detailText}>{`上映年份：${year}`}</Text>
-          <Text style={styles.detailText}>{`评分：${average ? average.toFixed(1) : '暂无评分'}`}</Text>
+          <Text style={styles.detailText}>{`评分：${average ? average.toFixed(1) : '暂无'}`}</Text>
         </View>
       </View>
       <View style={styles.detailSummaryWrapper}>

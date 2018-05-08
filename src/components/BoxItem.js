@@ -5,6 +5,7 @@ import {
   Image,
   TouchableHighlight
 } from 'react-native'
+import Rating from './Rating'
 import styles from '../styles/Main'
 
 const BoxItem = props => {
@@ -16,12 +17,17 @@ const BoxItem = props => {
         images: { large },
         title,
         original_title,
-        rating: { average }
+        genres,
+        rating: {
+          average,
+          stars
+        }
       }
     },
     onItemPress
   } = props
 
+  const genresShow = genres.join(' / ')
   const boxShow = box.toString().length < 9 ? `${(box / 10000).toFixed(0)} 万` : `${(box / 100000000).toFixed(1)} 亿`
 
   return (
@@ -38,9 +44,13 @@ const BoxItem = props => {
         />
         <View style={styles.itemContent}>
           <Text style={styles.itemHeader}>{title}</Text>
-          <Text style={styles.itemMeta}>{original_title}</Text>
-          <Text style={styles.redText}>{boxShow}</Text>
-          <Text style={styles.yellowText}>{average ? average.toFixed(1) : '暂无评分'}</Text>
+          <Text style={styles.itemOriginalTitle}>{original_title}</Text>
+          <Text style={styles.itemMeta}>{genresShow}</Text>
+          <Rating
+            average={average}
+            stars={stars}
+          />
+          <Text style={styles.boxText}>{boxShow}</Text>
         </View>
       </View>
     </TouchableHighlight>

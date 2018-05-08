@@ -5,6 +5,7 @@ import {
   Image,
   TouchableHighlight
 } from 'react-native'
+import Rating from './Rating'
 import styles from '../styles/Main'
 
 const MovieItem = props => {
@@ -16,7 +17,10 @@ const MovieItem = props => {
       original_title,
       year,
       genres,
-      rating: { average }
+      rating: {
+        average,
+        stars
+      }
     },
     showYear,
     onItemPress
@@ -40,9 +44,12 @@ const MovieItem = props => {
         />
         <View style={styles.itemContent}>
           <Text style={styles.itemHeader}>{title}</Text>
-          <Text style={styles.itemMeta}>{originalTitle}</Text>
-          <Text style={styles.redText}>{genresShow}</Text>
-          <Text style={styles.yellowText}>{average ? average.toFixed(1) : '暂无评分'}</Text>
+          <Text style={styles.itemOriginalTitle}>{originalTitle}</Text>
+          <Text style={styles.itemMeta}>{genresShow}</Text>
+          <Rating
+            average={average}
+            stars={stars}
+          />
         </View>
       </View>
     </TouchableHighlight>
