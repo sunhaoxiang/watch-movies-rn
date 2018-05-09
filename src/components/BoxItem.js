@@ -28,7 +28,7 @@ const BoxItem = props => {
   } = props
 
   const genresShow = genres.join(' / ')
-  const boxShow = box.toString().length < 9 ? `${(box / 10000).toFixed(0)} 万` : `${(box / 100000000).toFixed(1)} 亿`
+  const boxShow = box.toString().length < 9 ? `票房   ${(box / 10000).toFixed(0)} 万` : `票房   ${(box / 100000000).toFixed(1)} 亿`
 
   return (
     <TouchableHighlight
@@ -43,14 +43,18 @@ const BoxItem = props => {
           style={styles.itemImage}
         />
         <View style={styles.itemContent}>
-          <Text style={styles.itemHeader}>{title}</Text>
+          <Text style={styles.itemTitle}>{title}</Text>
           <Text style={styles.itemOriginalTitle}>{original_title}</Text>
           <Text style={styles.itemMeta}>{genresShow}</Text>
           <Rating
             average={average}
             stars={stars}
           />
-          <Text style={styles.boxText}>{boxShow}</Text>
+          <View style={styles.boxWrapper}>
+            <View style={styles.boxTextWrapper}>
+              <Text style={styles.boxText}>{boxShow}</Text>
+            </View>
+          </View>
         </View>
       </View>
     </TouchableHighlight>

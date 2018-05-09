@@ -15,7 +15,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   // 延迟进入应用,避免应用启动过快,导致启动图片一闪而过
-  [NSThread sleepForTimeInterval: 2.0];
+  [NSThread sleepForTimeInterval:2.0];
   
   NSURL *jsCodeLocation;
 

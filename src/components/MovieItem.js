@@ -43,7 +43,7 @@ const MovieItem = props => {
           style={styles.itemImage}
         />
         <View style={styles.itemContent}>
-          <Text style={styles.itemHeader}>{title}</Text>
+          <Text style={styles.itemTitle}>{title}</Text>
           <Text style={styles.itemOriginalTitle}>{originalTitle}</Text>
           <Text style={styles.itemMeta}>{genresShow}</Text>
           <Rating

@@ -4,7 +4,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "2436h",
-      "filename" : "loading_1125_2436.png",
+      "filename" : "第一行[1] - iPhone X 竖屏 iOS 11+@3x.png",
       "minimum-system-version" : "11.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -21,7 +21,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "loading_1242_2208.png",
+      "filename" : "第二行[1] - iPhone 视网膜 5.5 竖屏 iOS8+@3x.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -38,7 +38,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "667h",
-      "filename" : "loading_750_1334.png",
+      "filename" : "第二行[2] - iPhone 视网膜 4.7 竖屏 iOS8+@2x.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -46,7 +46,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "loading_640_960.png",
+      "filename" : "第三行[1] - iPhone 竖屏 2x iOS7+@2x.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -55,7 +55,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "loading_640_1136.png",
+      "filename" : "第三行[2] - iPhone 竖屏 Retina 4 iOS7+@2x.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -63,18 +63,21 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "第四行[1] - iPhone 竖屏 1x iOS5-6.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "第四行[2] - iPhone 竖屏 2x iOS5-6@2x.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "第四行[3] - iPhone 竖屏 Retina 4 iOS5-6@2x.png",
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"

@@ -45,7 +45,6 @@ class Layout extends PureComponent {
         >
           <View style={styles.container}>
             <StatusBar
-              backgroundColor="blue"
               barStyle="light-content"
             />
             <NavigatorIOS
@@ -81,7 +80,6 @@ class Layout extends PureComponent {
         >
           <View style={styles.container}>
             <StatusBar
-              backgroundColor="blue"
               barStyle="light-content"
             />
             <NavigatorIOS

@@ -36,8 +36,8 @@ export default StyleSheet.create({
     marginLeft: 13,
     marginTop: 6
   },
-  itemHeader: {
-    fontSize: 20,
+  itemTitle: {
+    fontSize: 18,
     fontFamily: 'Helvetica Neue',
     fontWeight: '400',
     color: '#000',
@@ -75,11 +75,24 @@ export default StyleSheet.create({
     fontFamily: 'Helvetica Neue',
     color: '#000'
   },
+  boxWrapper: {
+    flexDirection: 'row'
+  },
+  boxTextWrapper: {
+    backgroundColor: '#e5120c',
+    borderColor: '#e5120c',
+    borderWidth: 1,
+    borderRadius: 3,
+    paddingTop: 1,
+    paddingBottom: 1,
+    paddingRight: 5,
+    paddingLeft: 5
+  },
   boxText: {
-    color: '#e5120c',
-    fontSize: 16,
+    color: '#fff',
+    fontSize: 12,
     fontFamily: 'Helvetica Neue',
-    marginBottom: 10
+    fontWeight: '900'
   },
   title: {
     fontSize: 26,
