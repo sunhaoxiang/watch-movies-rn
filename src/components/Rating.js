@@ -5,9 +5,9 @@ import {
   Image
 } from 'react-native'
 import styles from "../styles/Main"
-import starFull from '../images/stars/star-full.png'
-import starHalf from '../images/stars/star-half.png'
-import starEmpty from '../images/stars/star-empty.png'
+import starFull from '../assets/images/stars/star-full.png'
+import starHalf from '../assets/images/stars/star-half.png'
+import starEmpty from '../assets/images/stars/star-empty.png'
 
 const Rating = props => {
   const {

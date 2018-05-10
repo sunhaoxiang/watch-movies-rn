@@ -11,7 +11,16 @@ import USBox from './USBox'
 import TOP250 from './TOP250'
 import Search from './Search'
 import styles from '../styles/Main'
-import icons from '../assets/Icons'
+import iconFire from '../assets/tabBar/fire-normal.png'
+import iconFireActive from '../assets/tabBar/fire-active.png'
+import iconNew from '../assets/tabBar/new-normal.png'
+import iconNewActive from '../assets/tabBar/new-active.png'
+import iconMovie from '../assets/tabBar/movie-normal.png'
+import iconMovieActive from '../assets/tabBar/movie-active.png'
+import iconStar from '../assets/tabBar/star-normal.png'
+import iconStarActive from '../assets/tabBar/star-active.png'
+import iconSearch from '../assets/tabBar/search-normal.png'
+import iconSearchActive from '../assets/tabBar/search-active.png'
 
 class Layout extends PureComponent {
   state = {
@@ -27,14 +36,8 @@ class Layout extends PureComponent {
         unselectedItemTintColor="#ccc"
       >
         <TabBarIOS.Item
-          icon={{
-            uri: icons.fire,
-            scale: 4.6
-          }}
-          selectedIcon={{
-            uri: icons.fireActive,
-            scale: 4.6
-          }}
+          icon={iconFire}
+          selectedIcon={iconFireActive}
           title="正在热映"
           selected={selectedTab === 'inTheater'}
           onPress={() => {
@@ -62,14 +65,8 @@ class Layout extends PureComponent {
           </View>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          icon={{
-            uri: icons.camera,
-            scale: 4.6
-          }}
-          selectedIcon={{
-            uri: icons.cameraActive,
-            scale: 4.6
-          }}
+          icon={iconNew}
+          selectedIcon={iconNewActive}
           title="即将上映"
           selected={selectedTab === 'comingSoon'}
           onPress={() => {
@@ -97,14 +94,8 @@ class Layout extends PureComponent {
           </View>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          icon={{
-            uri: icons.list,
-            scale: 4.6
-          }}
-          selectedIcon={{
-            uri: icons.listActive,
-            scale: 4.6
-          }}
+          icon={iconMovie}
+          selectedIcon={iconMovieActive}
           title="北美票房榜"
           selected={selectedTab === 'usBox'}
           onPress={() => {
@@ -132,14 +123,8 @@ class Layout extends PureComponent {
           </View>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          icon={{
-            uri: icons.star,
-            scale: 4.6
-          }}
-          selectedIcon={{
-            uri: icons.starActive,
-            scale: 4.6
-          }}
+          icon={iconStar}
+          selectedIcon={iconStarActive}
           title="TOP250"
           selected={selectedTab === 'top250'}
           onPress={() => {
@@ -167,14 +152,8 @@ class Layout extends PureComponent {
           </View>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          icon={{
-            uri: icons.search,
-            scale: 4.6
-          }}
-          selectedIcon={{
-            uri: icons.search,
-            scale: 4.6
-          }}
+          icon={iconSearch}
+          selectedIcon={iconSearchActive}
           title="搜索"
           selected={selectedTab === 'search'}
           onPress={() => {
