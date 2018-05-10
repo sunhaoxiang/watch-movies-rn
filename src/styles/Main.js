@@ -177,9 +177,8 @@ export default StyleSheet.create({
     marginBottom: 6
   },
   deleteIcon: {
-    width: 20,
-    height: 20,
-    margin: 10,
-    opacity: 0.6
+    width: 24,
+    height: 24,
+    margin: 8
   }
 })

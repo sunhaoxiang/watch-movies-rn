@@ -13,7 +13,7 @@ import SearchResult from '../views/SearchResult'
 import { searchUrl } from '../config/requestUrl'
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
-import icons from '../assets/Icons'
+import iconDelete from '../assets/images/delete.png'
 
 class SearchForm extends Component {
   state = {
@@ -119,7 +119,7 @@ class SearchForm extends Component {
             onPress={() => {this.deleteSearchHistoryHandler(item)}}
           >
             <Image
-              source={{uri: icons.delete}}
+              source={iconDelete}
               style={styles.deleteIcon}
             />
           </TouchableHighlight>
