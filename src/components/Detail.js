@@ -35,7 +35,7 @@ const Detail = props => {
   const splitSummary = summary.split(/\n/).map((item, index) => {
     return (
       <View key={index} style={styles.detailSummary}>
-        <Text style={styles.itemText}>{item}</Text>
+        <Text style={styles.itemText}>{`\t${item}`}</Text>
       </View>
     )
   })
