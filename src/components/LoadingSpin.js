@@ -11,7 +11,6 @@ const LoadingSpin = () => {
       <View style={styles.loading}>
         <ActivityIndicator
           size="large"
-          color="#e5120c"
         />
       </View>
     </View>

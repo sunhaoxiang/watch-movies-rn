@@ -169,7 +169,6 @@ class SearchForm extends Component {
           />
           <ActivityIndicator
             size="small"
-            color="#e5120c"
             animating={loading}
             style={[styles.inputLoading, {opacity}]}
           />
