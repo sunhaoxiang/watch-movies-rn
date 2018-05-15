@@ -46,6 +46,7 @@ class SearchForm extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
+          query: '',
           loading: false,
           opacity: 0
         })
@@ -53,8 +54,8 @@ class SearchForm extends Component {
           title
         } = data
         navigator.push({
-          title: title,
           component: SearchResult,
+          title: title,
           passProps: {
             searchData: {
               query,

@@ -39,7 +39,7 @@ export default StyleSheet.create({
   itemTitle: {
     fontSize: 18,
     fontFamily: 'Helvetica Neue',
-    fontWeight: '400',
+    fontWeight: '500',
     color: '#000',
     marginBottom: 2
   },
@@ -73,7 +73,8 @@ export default StyleSheet.create({
   ratingText: {
     fontSize: 12,
     fontFamily: 'Helvetica Neue',
-    color: '#000'
+    color: '#000',
+    fontWeight: '500'
   },
   boxWrapper: {
     flexDirection: 'row'
@@ -92,7 +93,7 @@ export default StyleSheet.create({
     color: '#fff',
     fontSize: 12,
     fontFamily: 'Helvetica Neue',
-    fontWeight: '900'
+    fontWeight: '700'
   },
   title: {
     fontSize: 26,
@@ -180,5 +181,13 @@ export default StyleSheet.create({
     width: 24,
     height: 24,
     margin: 8
+  },
+  notFoundTextWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  notFoundText: {
+    color: '#aaa'
   }
 })

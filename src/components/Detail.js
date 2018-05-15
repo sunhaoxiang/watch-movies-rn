@@ -9,6 +9,16 @@ import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 
 const Detail = props => {
+  const { code } = props.detail
+
+  if (code) {
+    return (
+      <View style={styles.notFoundTextWrapper}>
+        <Text style={styles.notFoundText}>暂无内容</Text>
+      </View>
+    )
+  }
+
   const {
     images: {
       large
