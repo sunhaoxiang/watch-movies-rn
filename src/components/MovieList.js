@@ -112,21 +112,21 @@ class MovieList extends PureComponent {
 
     this.setState({
       readyToFetch: false
-    })
+    }, () => {
+      fetch(`${requestUrl}?count=${count}&start=${start}`)
+        .then(res => res.json())
+        .then(data => {
+          const { movies } = this.state
+          const { subjects } = data
+          const newStart = start + count
 
-    fetch(`${requestUrl}?count=${count}&start=${start}`)
-      .then(res => res.json())
-      .then(data => {
-        const { movies } = this.state
-        const { subjects } = data
-        const newStart = start + count
-
-        this.setState({
-          movies: [...movies, ...subjects],
-          start: newStart,
-          readyToFetch: true
+          this.setState({
+            movies: [...movies, ...subjects],
+            start: newStart,
+            readyToFetch: true
+          })
         })
-      })
+    })
   }
 
   // 加载时的loading效果
