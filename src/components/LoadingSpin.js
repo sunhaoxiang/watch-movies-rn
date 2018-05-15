@@ -9,9 +9,7 @@ const LoadingSpin = () => {
   return (
     <View style={styles.container}>
       <View style={styles.loading}>
-        <ActivityIndicator
-          size="large"
-        />
+        <ActivityIndicator size="large" />
       </View>
     </View>
   )

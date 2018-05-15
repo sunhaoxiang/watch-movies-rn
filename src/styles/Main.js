@@ -124,7 +124,8 @@ export default StyleSheet.create({
   },
   detailContent: {
     flex: 1,
-    marginLeft: 13,
+    marginLeft: 12,
+    marginRight: 6,
     marginTop: 6
   },
   detailText: {
