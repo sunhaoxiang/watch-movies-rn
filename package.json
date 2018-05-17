@@ -1,6 +1,6 @@
 {
   "name": "watchMoviesRN",
-  "version": "0.1.0",
+  "version": "1.2.0",
   "private": true,
   "devDependencies": {
     "babel-preset-react-native-stage-0": "^1.0.1",
@@ -20,6 +20,7 @@
   "dependencies": {
     "prop-types": "^15.6.1",
     "react": "16.3.1",
-    "react-native": "~0.55.2"
+    "react-native": "~0.55.2",
+    "react-native-blur": "^3.2.2"
   }
 }

@@ -40,25 +40,24 @@ export default StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Helvetica Neue',
     fontWeight: '500',
-    color: '#000',
+    color: '#1c2438',
     marginBottom: 2
   },
   itemOriginalTitle: {
     fontSize: 12,
     fontFamily: 'Helvetica Neue',
-    color: 'rgba(0, 0, 0, 0.4)',
+    color: '#80848f',
     marginBottom: 10
   },
   itemMeta: {
     fontSize: 14,
     fontFamily: 'Helvetica Neue',
-    color: 'rgba(0, 0, 0, 0.4)',
+    color: '#80848f',
     marginBottom: 10
   },
   averageWrapper: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10
+    alignItems: 'center'
   },
   ratingTextWrapper: {
     backgroundColor: '#FFCE00',
@@ -73,11 +72,12 @@ export default StyleSheet.create({
   ratingText: {
     fontSize: 12,
     fontFamily: 'Helvetica Neue',
-    color: '#000',
+    color: '#1c2438',
     fontWeight: '500'
   },
   boxWrapper: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginTop: 10
   },
   boxTextWrapper: {
     backgroundColor: '#e5120c',
@@ -106,48 +106,132 @@ export default StyleSheet.create({
     fontWeight: '300'
   },
   itemText: {
-    fontSize: 16,
-    fontFamily: 'Helvetica Neue',
-    fontWeight: '300',
-    color: 'rgba(0, 0, 0, 0.8)',
-    lineHeight: 26
-  },
-  detailImageWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingTop: 6
-  },
-  detailImage: {
-    width: 120,
-    height: 180,
-    margin: 6
-  },
-  detailContent: {
-    flex: 1,
-    marginLeft: 12,
-    marginRight: 6,
-    marginTop: 6
-  },
-  detailText: {
     fontSize: 14,
     fontFamily: 'Helvetica Neue',
-    color: 'rgba(0, 0, 0, 0.8)',
-    marginBottom: 5
+    fontWeight: '300',
+    color: '#495060',
+    lineHeight: 26
+  },
+  detailHeader: {
+    flex: 1,
+    height: 240,
+    marginBottom: 30
+  },
+  detailBlurContainer: {
+    flex: 1,
+    overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  detailBlurAbsolute: {
+    position: "absolute",
+    height: 200,
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  },
+  detailBlurTitle: {
+    position: "absolute",
+    top: 30,
+    left: 10,
+    fontSize: 20,
+    fontWeight: '900',
+    fontFamily: 'Helvetica Neue',
+    color: '#fff'
+  },
+  detailBlurGenres: {
+    position: "absolute",
+    top: 100,
+    left: 10,
+    fontSize: 12,
+    fontFamily: 'Helvetica Neue',
+    color: '#fff'
+  },
+  detailBlurMeta: {
+    position: "absolute",
+    top: 130,
+    left: 10,
+    fontSize: 12,
+    fontFamily: 'Helvetica Neue',
+    color: '#fff'
+  },
+  detailBlurOriginalTitle: {
+    position: "absolute",
+    bottom: 0,
+    left: 10,
+    fontSize: 16,
+    fontFamily: 'Helvetica Neue',
+    fontWeight: '700',
+    color: '#495060'
+  },
+  detailBlurImageWrapper: {
+    position: "absolute",
+    bottom: 0,
+    right: 20,
+    shadowColor: '#1c2438',
+    shadowRadius: 2,
+    shadowOpacity: 0.8,
+    shadowOffset: {
+      height: 2,
+      width: 2
+    }
+  },
+  detailBlurImage: {
+    width: 100,
+    height: 150
+  },
+  detailInfoWrapper: {
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingLeft: 10,
+    paddingRight: 10
+  },
+  detailInfo: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
+  },
+  detailInfoTitle: {
+    fontSize: 12,
+    fontFamily: 'Helvetica Neue',
+    fontWeight: '700',
+    lineHeight: 18,
+    color: '#bbbec4',
+    paddingRight: 20
+  },
+  detailInfoContent: {
+    fontSize: 12,
+    fontFamily: 'Helvetica Neue',
+    fontWeight: '400',
+    lineHeight: 18,
+    color: '#495060'
+  },
+  detailTitleWrapper: {
+    marginTop: 20,
+    marginLeft: 10,
+    borderLeftWidth: 5,
+    borderLeftColor: '#e5120c'
+  },
+  detailTitleText: {
+    paddingLeft: 10,
+    fontSize: 18,
+    fontFamily: 'Helvetica Neue',
+    fontWeight: '900'
   },
   detailSummaryWrapper: {
-    paddingTop: 20
+    paddingTop: 10
   },
   detailSummary: {
     marginBottom: 15,
-    paddingLeft: 6,
-    paddingRight: 6
+    paddingLeft: 10,
+    paddingRight: 10
   },
   loadMoreWrapper: {
     marginVertical: 20,
     alignSelf: 'center'
   },
   loadMoreText: {
-    color: 'rgba(0, 0, 0, 0.3)'
+    color: '#80848f'
   },
   inputWrapper: {
     paddingTop: 7,
@@ -165,7 +249,7 @@ export default StyleSheet.create({
     right: 10
   },
   searchHeader: {
-    color: 'rgba(0, 0, 0, 0.8)',
+    color: '#495060',
     fontSize: 18,
     fontFamily: 'Helvetica Neue',
     marginTop: 30,
@@ -175,7 +259,7 @@ export default StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Helvetica Neue',
     fontWeight: '300',
-    color: '#aaa',
+    color: '#bbbec4',
     marginBottom: 6
   },
   deleteIcon: {
@@ -188,7 +272,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  notFoundImage: {
+    width: 100,
+    height: 100
+  },
   notFoundText: {
-    color: '#aaa'
+    color: '#bfbfbf',
+    fontWeight: '600'
   }
 })
