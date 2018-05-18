@@ -97,26 +97,20 @@ class Detail extends PureComponent {
             />
           </View>
         </View>
-        <View style={styles.detailInfoWrapper}>
-          <View style={styles.detailInfo}>
-            <Text style={styles.detailInfoTitle}>导演</Text>
-            <Text style={styles.detailInfoContent}>{directorsShow}</Text>
-          </View>
+        <View style={styles.detailInfo}>
+          <Text style={styles.detailInfoTitle}>导演</Text>
+          <Text style={styles.detailInfoContent}>{directorsShow}</Text>
         </View>
-        <View style={styles.detailInfoWrapper}>
-          <View style={styles.detailInfo}>
-            <Text style={styles.detailInfoTitle}>演员</Text>
-            <Text style={styles.detailInfoContent}>{castsShow}</Text>
-          </View>
+        <View style={styles.detailInfo}>
+          <Text style={styles.detailInfoTitle}>演员</Text>
+          <Text style={styles.detailInfoContent}>{castsShow}</Text>
         </View>
-        <View style={styles.detailInfoWrapper}>
-          <View style={styles.detailInfo}>
-            <Text style={styles.detailInfoTitle}>评分</Text>
-            <Rating
-              average={average}
-              stars={stars}
-            />
-          </View>
+        <View style={styles.detailInfo}>
+          <Text style={styles.detailInfoTitle}>评分</Text>
+          <Rating
+            average={average}
+            stars={stars}
+          />
         </View>
         <View style={styles.detailTitleWrapper}>
           <Text style={styles.detailTitleText}>剧情简介</Text>

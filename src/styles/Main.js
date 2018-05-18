@@ -178,18 +178,16 @@ export default StyleSheet.create({
     }
   },
   detailBlurImage: {
-    width: 100,
-    height: 150
+    width: 110,
+    height: 165
   },
-  detailInfoWrapper: {
+  detailInfo: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
     paddingTop: 4,
     paddingBottom: 4,
     paddingLeft: 10,
     paddingRight: 10
-  },
-  detailInfo: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start'
   },
   detailInfoTitle: {
     fontSize: 12,
@@ -204,7 +202,8 @@ export default StyleSheet.create({
     fontFamily: 'Helvetica Neue',
     fontWeight: '400',
     lineHeight: 18,
-    color: '#495060'
+    color: '#495060',
+    paddingRight: 45
   },
   detailTitleWrapper: {
     marginTop: 20,
