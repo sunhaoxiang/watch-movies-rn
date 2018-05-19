@@ -49,9 +49,9 @@ class Detail extends PureComponent {
       summary
     } = this.props.detail
 
-    const directorsShow = directors.map(item => item.name).join(' / ')
+    const directorsShow = directors.length > 0 ? directors.map(item => item.name).join(' / ') : '无'
 
-    const castsShow = casts.map(item => item.name).join(' / ')
+    const castsShow = casts.length > 0 ? casts.map(item => item.name).join(' / ') : '无'
 
     const genresShow = genres.join(' / ')
 
