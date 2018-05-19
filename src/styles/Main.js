@@ -21,7 +21,7 @@ export default StyleSheet.create({
   item: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderColor: 'rgba(100, 53, 201, 0.1)',
+    borderColor: 'rgba(0, 0, 0, 0.1)',
     paddingTop: 6,
     paddingBottom: 6,
     flex: 1
@@ -34,7 +34,8 @@ export default StyleSheet.create({
   itemContent: {
     flex: 1,
     marginLeft: 13,
-    marginTop: 6
+    marginTop: 6,
+    marginRight: 5
   },
   itemTitle: {
     fontSize: 18,
@@ -114,7 +115,7 @@ export default StyleSheet.create({
   },
   detailHeader: {
     flex: 1,
-    height: 240,
+    height: 250,
     marginBottom: 30
   },
   detailBlurContainer: {
@@ -163,7 +164,8 @@ export default StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Helvetica Neue',
     fontWeight: '700',
-    color: '#495060'
+    color: '#495060',
+    marginRight: 150
   },
   detailBlurImageWrapper: {
     position: "absolute",
@@ -236,7 +238,7 @@ export default StyleSheet.create({
     paddingTop: 7,
     paddingLeft: 7,
     paddingRight: 7,
-    borderColor: "rgba(100, 53, 201, 0.1)",
+    borderColor: "rgba(0, 0, 0, 0.1)",
     borderBottomWidth: 1
   },
   input: {

@@ -111,7 +111,7 @@ class SearchForm extends Component {
   renderSearchHistoryListHandler = ({item}) => {
     return (
       <TouchableHighlight
-        underlayColor="rgba(34, 26, 38, 0.1)"
+        underlayColor="rgba(0, 0, 0, 0.1)"
         onPress={() => {this.SearchHistoryHandler(item)}}
       >
         <View style={styles.item}>
