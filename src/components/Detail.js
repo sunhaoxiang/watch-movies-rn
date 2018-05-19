@@ -49,9 +49,13 @@ class Detail extends PureComponent {
       summary
     } = this.props.detail
 
-    const directorsShow = directors.length > 0 ? directors.map(item => item.name).join(' / ') : '无'
+    const countryShow = countries.length > 0 ? countries[0] : '未知国家'
 
-    const castsShow = casts.length > 0 ? casts.map(item => item.name).join(' / ') : '无'
+    const durationShow = durations.length > 0 ? durations[0] : '未知时长'
+
+    const directorsShow = directors.length > 0 ? directors.map(item => item.name).join(' / ') : '暂无'
+
+    const castsShow = casts.length > 0 ? casts.map(item => item.name).join(' / ') : '暂无'
 
     const genresShow = genres.join(' / ')
 
@@ -82,7 +86,7 @@ class Detail extends PureComponent {
           </View>
           <Text style={styles.detailBlurTitle}>{title}</Text>
           <Text style={styles.detailBlurGenres}>{genresShow}</Text>
-          <Text style={styles.detailBlurMeta}>{`${countries[0]} · ${year} · ${durations[0]}`}</Text>
+          <Text style={styles.detailBlurMeta}>{`${countryShow} · ${year} · ${durationShow}`}</Text>
           <Text style={styles.detailBlurOriginalTitle}>{original_title}</Text>
           <View style={styles.detailBlurImageWrapper}>
             <Image

@@ -8,7 +8,7 @@ const ComingSoon = props => {
   return (
     <MovieList
       requestUrl={ComingSoonUrl}
-      showYear={false}
+      showYear={true}
       navigator={navigator}
     />
   )
