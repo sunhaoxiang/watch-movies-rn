@@ -8,6 +8,7 @@ import {
 import PropTypes from 'prop-types'
 import MovieItem from './MovieItem'
 import LoadingSpin from './LoadingSpin'
+import NoData from './NoData'
 import MovieDetail from '../views/MovieDetail'
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
@@ -184,19 +185,25 @@ class MovieList extends PureComponent {
     }
 
     // 电影列表数据加载完成
-    return (
-      <FlatList
-        style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}
-        data={movies}
-        initialNumToRender={count}
-        ListFooterComponent={this.renderFooterHandler}
-        renderItem={this.renderMovieListHandler}
-        keyExtractor={this.keyExtractorHandler}
-        refreshing={refreshing}
-        onRefresh={this.refreshHandler}
-        onEndReached={this.endReachedHandler}
-      />
-    )
+    if (movies.length !== 0) {
+      return (
+        <FlatList
+          style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}
+          data={movies}
+          initialNumToRender={count}
+          ListFooterComponent={this.renderFooterHandler}
+          renderItem={this.renderMovieListHandler}
+          keyExtractor={this.keyExtractorHandler}
+          refreshing={refreshing}
+          onRefresh={this.refreshHandler}
+          onEndReached={this.endReachedHandler}
+        />
+      )
+    } else {
+      return (
+        <NoData />
+      )
+    }
   }
 }
 

@@ -7,6 +7,7 @@ import {
 import PropTypes from 'prop-types'
 import BoxItem from './BoxItem'
 import LoadingSpin from './LoadingSpin'
+import NoData from './NoData'
 import MovieDetail from "../views/MovieDetail"
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
@@ -103,17 +104,23 @@ class BoxList extends PureComponent {
     }
 
     // 电影列表数据加载完成
-    return (
-      <FlatList
-        style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}
-        data={movies}
-        ListFooterComponent={this.renderFooterHandler}
-        renderItem={this.renderBoxListHandler}
-        keyExtractor={this.keyExtractorHandler}
-        refreshing={refreshing}
-        onRefresh={this.refreshHandler}
-      />
-    )
+    if (movies.length !== 0) {
+      return (
+        <FlatList
+          style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}
+          data={movies}
+          ListFooterComponent={this.renderFooterHandler}
+          renderItem={this.renderBoxListHandler}
+          keyExtractor={this.keyExtractorHandler}
+          refreshing={refreshing}
+          onRefresh={this.refreshHandler}
+        />
+      )
+    } else {
+      return (
+        <NoData />
+      )
+    }
   }
 }
 

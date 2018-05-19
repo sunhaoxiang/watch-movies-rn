@@ -8,9 +8,9 @@ import {
 } from 'react-native'
 import { BlurView } from 'react-native-blur'
 import Rating from './Rating'
+import NoData from './NoData'
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
-import iconNoData from '../assets/images/no-data.png'
 
 class Detail extends PureComponent {
   state = {
@@ -26,13 +26,7 @@ class Detail extends PureComponent {
 
     if (code) {
       return (
-        <View style={styles.notFoundTextWrapper}>
-          <Image
-            source={iconNoData}
-            style={styles.notFoundImage}
-          />
-          <Text style={styles.notFoundText}>暂无内容</Text>
-        </View>
+        <NoData />
       )
     }
 

@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 import MovieItem from './MovieItem'
+import NoData from './NoData'
 import MovieDetail from '../views/MovieDetail'
 import { searchUrl } from '../config/requestUrl'
 import styles from "../styles/Main"
@@ -150,16 +151,22 @@ class SearchList extends PureComponent {
       count
     } = this.state
 
-    return (
-      <FlatList
-        data={movies}
-        initialNumToRender={count}
-        ListFooterComponent={this.renderFooterHandler}
-        renderItem={this.renderSearchListHandler}
-        keyExtractor={this.keyExtractorHandler}
-        onEndReached={this.endReachedHandler}
-      />
-    )
+    if (movies.length !== 0) {
+      return (
+        <FlatList
+          data={movies}
+          initialNumToRender={count}
+          ListFooterComponent={this.renderFooterHandler}
+          renderItem={this.renderSearchListHandler}
+          keyExtractor={this.keyExtractorHandler}
+          onEndReached={this.endReachedHandler}
+        />
+      )
+    } else {
+      return (
+        <NoData />
+      )
+    }
   }
 }
 
