@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 import SearchResult from '../views/SearchResult'
 import { searchUrl } from '../config/requestUrl'
+import apiKey from '../config/apiKey'
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 import iconDelete from '../assets/images/delete.png'
@@ -42,7 +43,7 @@ class SearchForm extends Component {
       opacity: 1
     })
 
-    fetch(`${searchUrl}?q=${query}&count=20&start=0`)
+    fetch(`${searchUrl}?apikey=${apiKey}&q=${query}&count=20&start=0`)
       .then(res => res.json())
       .then(data => {
         this.setState({

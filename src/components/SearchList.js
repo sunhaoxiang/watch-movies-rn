@@ -10,7 +10,8 @@ import MovieItem from './MovieItem'
 import NoData from './NoData'
 import MovieDetail from '../views/MovieDetail'
 import { searchUrl } from '../config/requestUrl'
-import styles from "../styles/Main"
+import apiKey from '../config/apiKey'
+import styles from '../styles/Main'
 
 class SearchList extends PureComponent {
   static defaultProps = {
@@ -87,7 +88,7 @@ class SearchList extends PureComponent {
       readyToFetch: false
     })
 
-    fetch(`${searchUrl}?q=${query}&count=${count}&start=${start}`)
+    fetch(`${searchUrl}?apikey=${apiKey}&q=${query}&count=${count}&start=${start}`)
       .then(res => res.json())
       .then(data => {
         const { movies } = this.state

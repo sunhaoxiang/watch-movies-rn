@@ -10,6 +10,7 @@ import MovieItem from './MovieItem'
 import LoadingSpin from './LoadingSpin'
 import NoData from './NoData'
 import MovieDetail from '../views/MovieDetail'
+import apiKey from '../config/apiKey'
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 
@@ -41,7 +42,7 @@ class MovieList extends PureComponent {
       start
     } = this.state
 
-    fetch(`${requestUrl}?count=${count}&start=${start}`)
+    fetch(`${requestUrl}?apikey=${apiKey}&count=${count}&start=${start}`)
       .then(res => res.json())
       .then(data => {
       	const {
@@ -114,7 +115,7 @@ class MovieList extends PureComponent {
     this.setState({
       readyToFetch: false
     }, () => {
-      fetch(`${requestUrl}?count=${count}&start=${start}`)
+      fetch(`${requestUrl}?apikey=${apiKey}&count=${count}&start=${start}`)
         .then(res => res.json())
         .then(data => {
           const { movies } = this.state

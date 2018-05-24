@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Detail from '../components/Detail'
 import LoadingSpin from '../components/LoadingSpin'
 import { MovieDetailUrl } from '../config/requestUrl'
+import apiKey from '../config/apiKey'
 
 class MovieDetail extends Component {
   state = {
@@ -16,7 +17,7 @@ class MovieDetail extends Component {
         id
       }
     } = this.props
-    fetch(`${MovieDetailUrl}/${id}`)
+    fetch(`${MovieDetailUrl}/${id}?apikey=${apiKey}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

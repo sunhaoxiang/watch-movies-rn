@@ -8,7 +8,8 @@ import PropTypes from 'prop-types'
 import BoxItem from './BoxItem'
 import LoadingSpin from './LoadingSpin'
 import NoData from './NoData'
-import MovieDetail from "../views/MovieDetail"
+import MovieDetail from '../views/MovieDetail'
+import apiKey from '../config/apiKey'
 import isIphoneX from '../utils/isIphoneX'
 import styles from '../styles/Main'
 
@@ -30,7 +31,7 @@ class BoxList extends PureComponent {
   // 请求电影列表数据
   fetchBoxList = () => {
     const { requestUrl } = this.props
-    fetch(requestUrl)
+    fetch(`${requestUrl}?apikey=${apiKey}`)
       .then(res => res.json())
       .then(data => {
         const { subjects } = data
