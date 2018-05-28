@@ -19,16 +19,16 @@
 
 ## 预览
 
-列表和详情页
+列表和详情页  
 ![1](https://raw.githubusercontent.com/sunhaoxiang/watch-movies-rn/master/preview-images/1.gif)
 
-列表分类
+列表分类  
 ![2](https://raw.githubusercontent.com/sunhaoxiang/watch-movies-rn/master/preview-images/2.gif)
 
-上拉刷新和下拉加载更多
+上拉刷新和下拉加载更多  
 ![3](https://raw.githubusercontent.com/sunhaoxiang/watch-movies-rn/master/preview-images/3.gif)
 
-搜索
+搜索  
 ![4](https://raw.githubusercontent.com/sunhaoxiang/watch-movies-rn/master/preview-images/4.gif)
 
 ## 技术栈
