@@ -1,6 +1,6 @@
 # watch-movies-rn
 
-> 使用 react-native 开发的iOS APP
+> 使用react-native开发的iOS电影资讯APP
 
 > 下载地址: [App Store(用iOS Safari浏览器打开)](https://itunes.apple.com/cn/app/%E7%94%B5%E5%BD%B1%E6%96%B0%E9%A3%8E%E5%90%91/id1382568619)
 
