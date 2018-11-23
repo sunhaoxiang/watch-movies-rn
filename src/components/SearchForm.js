@@ -12,7 +12,7 @@ import {
 import SearchResult from '../views/SearchResult'
 import { searchUrl } from '../config/requestUrl'
 import apiKey from '../config/apiKey'
-import isIphoneX from '../utils/isIphoneX'
+import isIPhoneX from '../utils/isIPhoneX'
 import styles from '../styles/Main'
 import iconDelete from '../assets/images/delete.png'
 
@@ -158,7 +158,7 @@ class SearchForm extends Component {
     const searchHeader = searchHistory.length > 0 ? (<Text style={styles.searchHeader}>搜索历史</Text>) : null
 
     return (
-      <View style={[styles.container, isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace]}>
+      <View style={[styles.container, isIPhoneX() ? styles.headerSpaceIPhoneX : styles.headerSpace]}>
         <View style={styles.inputWrapper}>
           <TextInput
             value={query}

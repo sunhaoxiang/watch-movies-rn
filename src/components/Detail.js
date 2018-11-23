@@ -9,7 +9,7 @@ import {
 import { BlurView } from 'react-native-blur'
 import Rating from './Rating'
 import NoData from './NoData'
-import isIphoneX from '../utils/isIphoneX'
+import isIPhoneX from '../utils/isIPhoneX'
 import styles from '../styles/Main'
 
 class Detail extends PureComponent {
@@ -68,7 +68,7 @@ class Detail extends PureComponent {
     })
 
     return (
-      <ScrollView style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}>
+      <ScrollView style={isIPhoneX() ? styles.headerSpaceIPhoneX : styles.headerSpace}>
         <View style={styles.detailHeader}>
           <View style={styles.detailBlurContainer}>
             <Image

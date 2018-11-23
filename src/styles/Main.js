@@ -9,7 +9,7 @@ export default StyleSheet.create({
     marginTop: 60,
     marginBottom: 40
   },
-  headerSpaceIphoneX: {
+  headerSpaceIPhoneX: {
     marginTop: 88,
     marginBottom: 82
   },

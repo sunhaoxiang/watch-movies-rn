@@ -11,7 +11,7 @@ import LoadingSpin from './LoadingSpin'
 import NoData from './NoData'
 import MovieDetail from '../views/MovieDetail'
 import apiKey from '../config/apiKey'
-import isIphoneX from '../utils/isIphoneX'
+import isIPhoneX from '../utils/isIPhoneX'
 import styles from '../styles/Main'
 
 class MovieList extends PureComponent {
@@ -189,7 +189,7 @@ class MovieList extends PureComponent {
     if (movies.length !== 0) {
       return (
         <FlatList
-          style={isIphoneX() ? styles.headerSpaceIphoneX : styles.headerSpace}
+          style={isIPhoneX() ? styles.headerSpaceIPhoneX : styles.headerSpace}
           data={movies}
           initialNumToRender={count}
           ListFooterComponent={this.renderFooterHandler}
